@@ -1,0 +1,55 @@
+{
+  "name": "hapi-async-rate-limit",
+  "description": "hapi plugin to prevent brute-force attacks",
+  "version": "1.0.0",
+  "author": "Future Studio <info@futurestud.io>",
+  "bugs": {
+    "url": "https://github.com/fs-opensource/hapi-async-rate-limit/issues"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "homepage": "https://github.com/fs-opensource/hapi-async-rate-limit#readme",
+  "keywords": [
+    "hapi",
+    "hapijs",
+    "hapi.js",
+    "plugin",
+    "rate",
+    "limit",
+    "rate limit",
+    "rate-limit",
+    "rate limiter",
+    "rate limiting",
+    "bruteforce",
+    "brute force",
+    "brute force protection"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-opensource/hapi-async-rate-limit.git"
+  },
+  "scripts": {
+    "test": "lab --assert code --leaks --coverage --lint",
+    "prepush": "npm test"
+  },
+  "dependencies": {
+    "async-ratelimiter": "~1.0.2",
+    "boom": "~7.2.0",
+    "ioredis": "~3.2.2",
+    "request-ip": "~2.1.1"
+  },
+  "devDependencies": {
+    "code": "~5.2.0",
+    "eslint": "~4.19.0",
+    "eslint-config-standard": "~10.2.1",
+    "eslint-plugin-import": "~2.8.0",
+    "eslint-plugin-node": "~5.2.1",
+    "eslint-plugin-promise": "~3.6.0",
+    "eslint-plugin-standard": "~3.0.1",
+    "hapi": "~17.2.0",
+    "lab": "~15.2.2"
+  }
+}
