@@ -31,7 +31,7 @@ describe('Send rate limit HTTP response headers,', () => {
     await server.initialize()
   })
 
-  it('succeeds a request and receives rate limit response headers', async () => {
+  it('succeeds a request and sends rate limit response headers', async () => {
     const request = {
       url: '/',
       method: 'GET'
@@ -42,5 +42,35 @@ describe('Send rate limit HTTP response headers,', () => {
     Expect(response.headers['x-rate-limit-limit']).to.equal(1000)
     Expect(response.headers['x-rate-limit-remaining']).to.equal(999)
     Expect(response.headers['x-rate-limit-reset']).to.exist()
+  })
+
+  it('succeeds requests with different IP addresses and sends rate limit response headers', async () => {
+    const first = {
+      url: '/',
+      method: 'GET',
+      headers: {
+        'X-Client-IP': '1.2.3.4'
+      }
+    }
+
+    const response1 = await server.inject(first)
+    Expect(response1.statusCode).to.equal(200)
+    Expect(response1.headers['x-rate-limit-limit']).to.equal(1000)
+    Expect(response1.headers['x-rate-limit-remaining']).to.equal(999)
+    Expect(response1.headers['x-rate-limit-reset']).to.exist()
+
+    const second = {
+      url: '/',
+      method: 'GET',
+      headers: {
+        'X-Client-IP': '9.8.7.6'
+      }
+    }
+
+    const response2 = await server.inject(second)
+    Expect(response2.statusCode).to.equal(200)
+    Expect(response2.headers['x-rate-limit-limit']).to.equal(1000)
+    Expect(response2.headers['x-rate-limit-remaining']).to.equal(999)
+    Expect(response2.headers['x-rate-limit-reset']).to.exist()
   })
 })
