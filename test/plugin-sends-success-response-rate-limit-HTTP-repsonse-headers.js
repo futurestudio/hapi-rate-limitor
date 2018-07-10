@@ -23,10 +23,12 @@ describe('Send rate limit HTTP response headers,', () => {
     server.route({
       method: 'GET',
       path: '/',
-      handler: request => {
+      handler: () => {
         return 'This is rate limitoooooooor!'
       }
     })
+
+    await server.initialize()
   })
 
   it('succeeds a request and receives rate limit response headers', async () => {
@@ -40,8 +42,5 @@ describe('Send rate limit HTTP response headers,', () => {
     Expect(response.headers['x-rate-limit-limit']).to.equal(1000)
     Expect(response.headers['x-rate-limit-remaining']).to.equal(999)
     Expect(response.headers['x-rate-limit-reset']).to.exist()
-  })
-
-  it('stops the server on SIGINT', async () => {
   })
 })
