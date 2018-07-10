@@ -17,9 +17,21 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 
 ------
 
+#### solid, easy to use rate limiting for hapi
+<br>
+<br>
 
-## Tba.
-tbc.
+## Introduction
+A hapi plugin to prevent brute-force attacks in your app. The rate limiter uses Redis to store rate-limit related data.
+
+`hapi-rate-limitor` is built on top of these solid and awesome projects:
+
+- [Redis](https://redis.io/)
+- [ioredis](https://github.com/luin/ioredis)
+- [request-ip](https://github.com/pbojinov/request-ip)
+- [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter)
+
+Each package solves its own problem perfectly. `hapi-rate-limitor` composes the solutions of each problem to a solid rate limit plugin for hapi.
 
 
 ## Requirements
@@ -38,6 +50,45 @@ npm i hapi-rate-limitor
 # you’re using NPM v4:
 npm i -S hapi-rate-limitor
 ```
+
+
+## Usage
+The most straight forward to use `hapi-rate-limitor` is to register it with the default configuration to your hapi server:
+
+```js
+await server.register({
+  plugin: require('hapi-rate-limitor')
+})
+
+// went smooth like chocolate with default settings :)
+```
+
+
+## Plugin Options
+Customize the plugin’s default configuration with the following options:
+
+- **redis**: `(object)`, default: `null` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
+
+All other options are directly passed through to [`async-ratelimiter`](https://github.com/microlinkhq/async-ratelimiter#api).
+
+```js
+await server.register({
+  plugin: require('hapi-dev-errors'),
+  options: {
+    redis: {
+      port: 6379,
+      host: '127.0.0.1'
+    },
+    namespace: 'hapi-rate-limitor',
+    max: 2, // a maximum of 2 requests
+    duration: 1000 // per second (the value is in milliseconds)
+  }
+})
+
+// went smooth like chocolate :)
+```
+
+Please check the [`async-ratelimiter API`](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
 
 ## Feature Requests
