@@ -29,7 +29,7 @@ describe('Send rate limit HTTP response headers,', () => {
     })
   })
 
-  it('receives a rate limit error response and rate limit response headers', async () => {
+  it('sends rate limit error and rate limit response headers', async () => {
     const request = {
       url: '/',
       method: 'GET'

@@ -10,7 +10,7 @@ const server = new Hapi.Server()
 const Expect = Code.expect
 const { describe, it, before } = (exports.lab = Lab.script())
 
-describe('Send rate limit HTTP response headers,', () => {
+describe('Reset rate limit after timeout,', () => {
   before(async () => {
     await server.register({
       plugin: require('../lib/index'),
