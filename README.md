@@ -70,7 +70,7 @@ Customize the plugin’s default configuration with the following options:
 
 - **redis**: `(object)`, default: `null` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
 
-All other options are directly passed through to [`async-ratelimiter`](https://github.com/microlinkhq/async-ratelimiter#api).
+All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
 ```js
 await server.register({
@@ -89,7 +89,7 @@ await server.register({
 // went smooth like chocolate :)
 ```
 
-Please check the [`async-ratelimiter API`](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
+Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
 
 ## Feature Requests
