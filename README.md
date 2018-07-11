@@ -26,10 +26,10 @@ A hapi plugin to prevent brute-force attacks in your app. The rate limiter uses 
 
 `hapi-rate-limitor` is built on top of these solid and awesome projects:
 
+- [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter)
 - [Redis](https://redis.io/)
 - [ioredis](https://github.com/luin/ioredis)
 - [request-ip](https://github.com/pbojinov/request-ip)
-- [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter)
 
 Each package solves its own problem perfectly. `hapi-rate-limitor` composes the solutions of each problem to a solid rate limit plugin for hapi.
 
