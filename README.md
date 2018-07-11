@@ -72,7 +72,7 @@ All other options are directly passed through to [`async-ratelimiter`](https://g
 
 ```js
 await server.register({
-  plugin: require('hapi-dev-errors'),
+  plugin: require('hapi-rate-limitor'),
   options: {
     redis: {
       port: 6379,
