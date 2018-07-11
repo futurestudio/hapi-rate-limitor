@@ -99,7 +99,7 @@ Do you miss a feature? Please don’t hesitate to
 
 ## Links & Resources
 
-- [hapi tutorial series](https://futurestud.io/tutorials/hapi-get-your-server-up-and-running) with 80+ tutorials
+- [hapi tutorial series](https://futurestud.io/tutorials/hapi-get-your-server-up-and-running) with 90+ tutorials
 
 
 ## Contributing
