@@ -22,12 +22,11 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 <br>
 
 ## Introduction
-A hapi plugin to prevent brute-force attacks in your app. The rate limiter uses Redis to store rate-limit related data.
+A hapi plugin to prevent brute-force attacks in your app. The rate limiter uses [Redis](https://redis.io/) to store rate-limit related data.
 
 `hapi-rate-limitor` is built on top of these solid and awesome projects:
 
 - [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter)
-- [Redis](https://redis.io/)
 - [ioredis](https://github.com/luin/ioredis)
 - [request-ip](https://github.com/pbojinov/request-ip)
 
