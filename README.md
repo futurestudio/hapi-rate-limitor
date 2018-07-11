@@ -52,7 +52,7 @@ npm i -S hapi-rate-limitor
 
 
 ## Usage
-The most straight forward to use `hapi-rate-limitor` is to register it with the default configuration to your hapi server:
+The most straight forward to use `hapi-rate-limitor` is to register it to your hapi server. This will use the default configuration of [`async-ratelimiter`](https://github.com/microlinkhq/async-ratelimiter#api) and [ioredis](https://github.com/luin/ioredis/blob/master/API.md).
 
 ```js
 await server.register({
