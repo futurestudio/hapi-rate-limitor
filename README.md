@@ -68,7 +68,8 @@ await server.register({
 ## Plugin Options
 Customize the plugin’s default configuration with the following options:
 
-- **redis**: `(object)`, default: `null` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
+- **redis**: `(object)`, default: `undefined` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
+- **userLimitKey**: `(string)`, default: `undefined` — define the property name that defines the user specific rate limit. This option is used to access the value from `request.auth.credentials`.
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -90,6 +91,26 @@ await server.register({
 ```
 
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
+
+
+### User-specific Rate Limits
+ You can assign individual rate limits to each authenticated user. Set the user’s rate limit in a property that is part of `request.auth.credentials`. `hapi-rate-limitor` favors user-specific limits over the default limit.
+
+ **Example:**
+ Authenticated users will have a rate limit of 2500 requests per hour, unauthenticated requests only 1000 requests per hour. Make the user limits available in a property that is accessible on `request.auth.credentials`. E.g., assign the rate limit permanently to the user and store it in the database or assign the value during auth validation.
+
+Assume the following object represents `request.auth.credentials`:
+
+```js
+{
+  name: 'Marcus',
+  rateLimit: 2500
+}
+```
+
+Register `hapi-rate-limitor` to your hapi server and use the `userLimitKey: 'rateLimit'` to access the `rateLimit` value during rate limit processing.
+
+If the `rateLimit` property isn’t available, `hapi-rate-limitor` uses the default limit.
 
 
 ## Response Headers
