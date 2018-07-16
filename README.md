@@ -92,6 +92,14 @@ await server.register({
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
 
+## Response Headers
+The plugin sets the following response headers:
+
+- `X-Rate-Limit-Limit`: total request limit (`max`) within `duration`
+- `X-Rate-Limit-Remaining`: remaining quota until reset
+- `X-Rate-Limit-Reset`: time since epoch in seconds that the rate limiting period will end
+
+
 ## Feature Requests
 Do you miss a feature? Please don’t hesitate to
 [create an issue](https://github.com/fs-opensource/hapi-rate-limitor/issues) with a short description of your desired addition to this plugin.
