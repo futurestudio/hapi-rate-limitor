@@ -99,10 +99,21 @@ Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ra
  **Example:**
  Authenticated users will have a rate limit of 2500 requests per hour, unauthenticated requests only 1000 requests per hour. Make the user limits available in a property that is accessible on `request.auth.credentials`. E.g., assign the rate limit permanently to the user and store it in the database or assign the value during auth validation.
 
-Assume the following object represents `request.auth.credentials`:
+Assume the following setup and user credentials (which will be assigned to `request.auth.credentials`):
 
 ```js
-{
+// default rate limits: 1000 requests per hour
+await server.register({
+  plugin: require('hapi-rate-limitor'),
+  options: {
+    max: 1000,
+    duration: 3600000,
+    userLimitKey: 'rateLimit'
+  }
+})
+
+// authenticated users have 2500 requests per hour
+const credentials = {
   name: 'Marcus',
   rateLimit: 2500
 }
