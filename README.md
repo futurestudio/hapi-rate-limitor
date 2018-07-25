@@ -69,7 +69,7 @@ await server.register({
 Customize the plugin’s default configuration with the following options:
 
 - **redis**: `(object)`, default: `undefined` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
-- **userLimitKey**: `(string)`, default: `undefined` — define the property name that defines the user specific rate limit. This option is used to access the value from `request.auth.credentials`.
+- **userLimitKey**: `(string)`, default: `undefined` — define the property name that defines the [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -93,35 +93,25 @@ await server.register({
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
 
-### User-specific Rate Limits
- You can assign individual rate limits to each authenticated user. Set the user’s rate limit in a property that is part of `request.auth.credentials`. `hapi-rate-limitor` favors user-specific limits over the default limit.
-
- **Example:**
- Authenticated users will have a rate limit of 2500 requests per hour, unauthenticated requests only 1000 requests per hour. Make the user limits available in a property that is accessible on `request.auth.credentials`. E.g., assign the rate limit permanently to the user and store it in the database or assign the value during auth validation.
-
-Assume the following setup and user credentials (which will be assigned to `request.auth.credentials`):
+## Dynamic Rate Limits
+ You can assign dynamic rate limits to an attribute of an authenticated user (`request.auth.credentials`).
 
 ```js
-// default rate limits: 1000 requests per hour
-await server.register({
-  plugin: require('hapi-rate-limitor'),
-  options: {
-    max: 1000,
-    duration: 3600000,
-    userLimitKey: 'rateLimit'
-  }
-})
-
-// authenticated users have 2500 requests per hour
-const credentials = {
+/**
+ * the authenticated user object may contain
+ * a custom rate limit attribute. In this
+ * case, it's called "rateLimit".
+ */
+request.auth.credentials = {
   name: 'Marcus',
-  rateLimit: 2500
+  rateLimit: 1750,
+  // ... further attributes
 }
 ```
 
-Register `hapi-rate-limitor` to your hapi server and use the `userLimitKey: 'rateLimit'` to access the `rateLimit` value during rate limit processing.
+To make use of the dynamic rate limit, you need to configure `hapi-rate-limitor` to use the attribute `'rateLimit'`. To do so, configure the `userLimitKey: 'rateLimit'` option during plugin registration. This will calculate the maximum requests individually for each authenticated user.
 
-If the `rateLimit` property isn’t available, `hapi-rate-limitor` uses the default limit.
+`hapi-rate-limitor` uses the default limit if the request is unauthenticated or `request.auth.credentials.rateLimit` is not available.
 
 
 ## Response Headers
