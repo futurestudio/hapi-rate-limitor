@@ -109,7 +109,19 @@ request.auth.credentials = {
 }
 ```
 
-To make use of the dynamic rate limit, you need to configure `hapi-rate-limitor` to use the attribute `'rateLimit'`. To do so, configure the `userLimitKey: 'rateLimit'` option during plugin registration. This will calculate the maximum requests individually for each authenticated user.
+To make use of the dynamic rate limit, you need to configure `hapi-rate-limitor` to use the attribute `'rateLimit'`. To do so, configure the `userLimitKey: 'rateLimit'` option during plugin registration.
+
+```js
+await server.register({
+  plugin: require('hapi-rate-limitor'),
+  options: {
+    userLimitKey: 'rateLimit',
+    // other plugin options
+  }
+})
+```
+
+This will calculate the maximum requests individually for each authenticated user.
 
 `hapi-rate-limitor` uses the default limit if the request is unauthenticated or `request.auth.credentials.rateLimit` is not available.
 
