@@ -1,5 +1,5 @@
 <p align="center">
-  hapi-rate-limitor
+  <img src="https://github.com/fs-opensource/hapi-rate-limitor/blob/master/media/hapi-rate-limitor.png?raw=true" alt="hapi-rate-limitor logo" width="471" style="max-width:100%;">
 </p>
 
 <p align="center">
