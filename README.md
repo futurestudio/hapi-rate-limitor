@@ -94,21 +94,21 @@ Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ra
 
 
 ## Dynamic Rate Limits
-To make use of the dynamic rate limit, you need to configure `hapi-rate-limitor` to use the attribute `'rateLimit'`. To do so, configure the `userLimitKey: 'rateLimit'` option during plugin registration.
+To make use of a dynamic rate limit, you need to configure the `userLimitKey` attribute in the `hapi-rate-limitor` options. This attribute can have a value like `'rateLimit'`. Here’s a custom plugin configuration with `userLimitKey: 'rateLimit'`.
 
 ```js
 await server.register({
   plugin: require('hapi-rate-limitor'),
   options: {
     userLimitKey: 'rateLimit',
-    max: 500, // a maximum of 500 requests
+    max: 500, // a maximum of 500 requests (default is 2500)
     duration: 60 * 60 * 1000 // per hour (the value is in milliseconds)
     // other plugin options
   }
 })
 ```
 
-This will calculate the maximum requests individually for each authenticated user using the `'rateLimit'` attribute. Imagine the following user object as an authenticated user:
+This will calculate the maximum requests individually for each authenticated user based on the user’s `'rateLimit'` attribute. Imagine the following user object as an authenticated user:
 
 ```js
 /**
@@ -123,9 +123,9 @@ request.auth.credentials = {
 }
 ```
 
-For this specific user, the maximum amount of requests is `1750` per hour (and not the default `500`).
+For this specific user, the maximum amount of requests is `1750` per hour (and not the plugin’s default `500`).
 
-`hapi-rate-limitor` uses the default limit if the request is unauthenticated or `request.auth.credentials.rateLimit` is not available.
+`hapi-rate-limitor` uses the plugin’s limit if the request is unauthenticated or `request.auth.credentials` doesn’t contain a rate-limit-related attribute.
 
 
 ## Response Headers
