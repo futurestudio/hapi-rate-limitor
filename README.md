@@ -17,7 +17,8 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 
 ------
 
-#### solid, easy to use rate limiting for hapi
+> **solid, easy to use rate limiting for hapi**
+
 <br>
 <br>
 
