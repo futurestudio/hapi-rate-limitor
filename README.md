@@ -1,12 +1,29 @@
-<p align="center">
+<div align="center">
   <img src="https://github.com/fs-opensource/hapi-rate-limitor/blob/master/media/hapi-rate-limitor.png?raw=true" alt="hapi-rate-limitor logo" width="471" style="max-width:100%;">
-</p>
+  <br/>
+  <br/>
 
-<p align="center">
+  <p>
+    A hapi rate limiting plugin built on top of Redis.
+  </p>
+  <br/>
+  <p>
+    <a href="#installation"><strong>Installation</strong></a> ·
+    <a href="#usage"><strong>Usage</strong></a> ·
+    <a href="#plugin-options"><strong>Plugin Options</strong></a> ·
+    <a href="#response-headers"><strong>Response Headers</strong></a>
+  </p>
+  <br/>
+  <br/>
+  <p>
     <a href="https://travis-ci.org/fs-opensource/hapi-rate-limitor"><img src="https://camo.githubusercontent.com/9f56ef242c6f588f74f39f0bd61c1acd34d853af/68747470733a2f2f7472617669732d63692e6f72672f66732d6f70656e736f757263652f686170692d67656f2d6c6f636174652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/fs-opensource/hapi-rate-limitor.svg?branch=master" style="max-width:100%;"></a>
     <a href="https://snyk.io/test/github/fs-opensource/hapi-rate-limitor"><img src="https://snyk.io/test/github/fs-opensource/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/fs-opensource/hapi-rate-limitor" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" alt="hapi-rate-limitor Version" data-canonical-src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" style="max-width:100%;"></a>
-</p>
+  </p>
+  <p>
+    <em>Follow <a href="http://twitter.com/marcuspoehls">@marcuspoehls</a> for updates!</em>
+  </p>
+</div>
 
 ------
 
