@@ -4,7 +4,7 @@
   <br/>
 
   <p>
-    A hapi rate limiting plugin built on top of Redis.
+    Solid and easy to use rate limiting for hapi.
   </p>
   <br/>
   <p>
@@ -34,10 +34,6 @@ Join the <a href="https://futurestud.io/university">Future Studio University and
 
 ------
 
-> **solid, easy to use rate limiting for hapi**
-
-<br>
-<br>
 
 ## Introduction
 A hapi plugin to prevent brute-force attacks in your app. The rate limiter uses [Redis](https://redis.io/) to store rate-limit related data.
