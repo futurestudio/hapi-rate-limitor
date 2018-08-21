@@ -6,6 +6,12 @@
 - tba.
 
 
+## [1.1.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.0...v1.1.1) - 2018-08-21
+
+### Updated
+- Readme: quick navigation and logo size fix for small screens
+
+
 ## [1.1.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.0.0...v1.1.0) - 2018-08-08
 
 ### Added
