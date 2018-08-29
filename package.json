@@ -38,19 +38,19 @@
   "dependencies": {
     "async-ratelimiter": "~1.1.2",
     "boom": "~7.2.0",
-    "ioredis": "~3.2.2",
+    "ioredis": "~4.0.0",
     "request-ip": "~2.1.1"
   },
   "devDependencies": {
     "code": "~5.2.0",
-    "eslint": "~4.19.0",
+    "eslint": "~4.19.1",
     "eslint-config-standard": "~11.0.0",
-    "eslint-plugin-import": "~2.13.0",
-    "eslint-plugin-node": "~6.0.1",
-    "eslint-plugin-promise": "~3.8.0",
+    "eslint-plugin-import": "~2.14.0",
+    "eslint-plugin-node": "~7.0.1",
+    "eslint-plugin-promise": "~4.0.0",
     "eslint-plugin-standard": "~3.1.0",
-    "hapi": "~17.5.3",
-    "hoek": "~5.0.3",
+    "hapi": "~17.5.4",
+    "hoek": "~5.0.4",
     "lab": "~15.5.0"
   }
 }
