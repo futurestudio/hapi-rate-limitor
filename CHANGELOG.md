@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 ### Updated
+- add route-specific rate limits
 - fix user-specific rate limits and use the userId as identifier
 - switch from `lab` and `code` to `AVA` for testing
 - add NPM command to calculate coverage
