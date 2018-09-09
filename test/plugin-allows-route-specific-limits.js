@@ -74,6 +74,7 @@ Test('succeeds an authenticated request without route-specific rate limit and us
     url: '/route-limit-overrides-user-limit',
     method: 'GET',
     credentials: {
+      id: 'marcus-route-limit-1',
       name: 'Marcus'
     }
   }

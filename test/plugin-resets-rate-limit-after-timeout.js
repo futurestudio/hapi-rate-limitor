@@ -11,7 +11,7 @@ Test.before(async ({context}) => {
     plugin: require('../lib/index'),
     options: {
       max: 1,
-      duration: 100, // 100ms
+      duration: 300, // 100ms
       namespace: 'reset-response-headers'
     }
   })
@@ -40,7 +40,7 @@ Test('resets rate limit after window timeout', async (t) => {
   const response2 = await t.context.server.inject(request)
   t.is(response2.statusCode, 429)
 
-  await Hoek.wait(100)
+  await Hoek.wait(300)
 
   const response3 = await t.context.server.inject(request)
   t.is(response3.statusCode, 200)

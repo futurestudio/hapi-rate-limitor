@@ -12,6 +12,7 @@ Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
       max: 1000,
       duration: 25 * 1000, // 25s
       namespace: `user-limits-${Date.now()}`,
+      userIdKey: 'id',
       userLimitKey: 'rateLimit'
     }
   })
@@ -33,6 +34,7 @@ Test('succeeds an authenticated request and uses user-specific limit', async (t)
     url: '/',
     method: 'GET',
     credentials: {
+      id: 'marcus-user-limit-1',
       name: 'Marcus',
       rateLimit: 2500
     }
@@ -50,6 +52,7 @@ Test('succeeds an authenticated request without user-specific rate limit (fallba
     url: '/',
     method: 'GET',
     credentials: {
+      id: 'marcus-user-limit-2',
       name: 'Marcus'
     }
   }
@@ -59,4 +62,42 @@ Test('succeeds an authenticated request without user-specific rate limit (fallba
   t.is(response.headers['x-rate-limit-limit'], 1000)
   t.is(response.headers['x-rate-limit-remaining'], 999)
   t.not(response.headers['x-rate-limit-reset'], null)
+})
+
+Test('applies user-specific rate limits even for chaning IPs', async (t) => {
+  const credentials = {
+    id: 'marcus-user-limit-3',
+    name: 'Marcus',
+    rateLimit: 5000
+  }
+
+  const request1 = {
+    url: '/',
+    method: 'GET',
+    headers: {
+      'x-forwarded-for': '1.2.3.4'
+    },
+    credentials
+  }
+
+  const response = await t.context.server.inject(request1)
+  t.is(response.statusCode, 200)
+  t.is(response.headers['x-rate-limit-limit'], 5000)
+  t.is(response.headers['x-rate-limit-remaining'], 4999)
+  t.not(response.headers['x-rate-limit-reset'], null)
+
+  const request2 = {
+    url: '/',
+    method: 'GET',
+    headers: {
+      'x-forwarded-for': '5.6.7.8'
+    },
+    credentials
+  }
+
+  const response2 = await t.context.server.inject(request2)
+  t.is(response2.statusCode, 200)
+  t.is(response2.headers['x-rate-limit-limit'], 5000)
+  t.is(response2.headers['x-rate-limit-remaining'], 4998)
+  t.not(response2.headers['x-rate-limit-reset'], null)
 })
