@@ -41,3 +41,6 @@ package-lock.json
 
 # IDEA
 .idea
+
+# nyc coverage
+.nyc_output
