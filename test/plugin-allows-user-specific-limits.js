@@ -3,18 +3,16 @@
 const Test = require('ava')
 const Hapi = require('hapi')
 
-Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
+async function initializeServer (options) {
   const server = new Hapi.Server()
 
   await server.register({
     plugin: require('../lib/index'),
-    options: {
+    options: Object.assign({
       max: 1000,
       duration: 25 * 1000, // 25s
-      namespace: `user-limits-${Date.now()}`,
-      userIdKey: 'id',
-      userLimitKey: 'rateLimit'
-    }
+      namespace: `user-limits-${Date.now()}`
+    }, options)
   })
 
   server.route({
@@ -26,7 +24,15 @@ Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
   })
 
   await server.initialize()
-  context.server = server
+
+  return server
+}
+
+Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
+  context.server = await initializeServer({
+    userIdKey: 'id',
+    userLimitKey: 'rateLimit'
+  })
 })
 
 Test('succeeds an authenticated request and uses user-specific limit', async (t) => {
@@ -100,4 +106,29 @@ Test('applies user-specific rate limits even for chaning IPs', async (t) => {
   t.is(response2.headers['x-rate-limit-limit'], 5000)
   t.is(response2.headers['x-rate-limit-remaining'], 4998)
   t.not(response2.headers['x-rate-limit-reset'], null)
+})
+
+Test('does not use user-specific limits without a userKey', async (t) => {
+  const server = await initializeServer({
+    max: 100,
+    userLimitKey: 'rateLimit'
+  })
+
+  const request = {
+    url: '/',
+    method: 'GET',
+    headers: {
+      'x-forwarded-for': '1.2.3.4'
+    },
+    credentials: {
+      name: 'Marcus',
+      rateLimit: '2000'
+    }
+  }
+
+  const response = await server.inject(request)
+  t.is(response.statusCode, 200)
+  t.is(response.headers['x-rate-limit-limit'], 100)
+  t.is(response.headers['x-rate-limit-remaining'], 99)
+  t.not(response.headers['x-rate-limit-reset'], null)
 })
