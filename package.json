@@ -32,7 +32,7 @@
     "url": "git+https://github.com/fs-opensource/hapi-rate-limitor.git"
   },
   "scripts": {
-    "test": "lab --assert code --leaks --coverage --lint",
+    "test": "ava",
     "prepush": "npm test"
   },
   "dependencies": {
@@ -43,7 +43,7 @@
     "request-ip": "~2.1.1"
   },
   "devDependencies": {
-    "code": "~5.2.0",
+    "ava": "~1.0.0-beta.8",
     "eslint": "~4.19.1",
     "eslint-config-standard": "~11.0.0",
     "eslint-plugin-import": "~2.14.0",
@@ -51,7 +51,6 @@
     "eslint-plugin-promise": "~4.0.0",
     "eslint-plugin-standard": "~3.1.0",
     "hapi": "~17.5.4",
-    "hoek": "~5.0.4",
-    "lab": "~15.5.0"
+    "hoek": "~5.0.4"
   }
 }
