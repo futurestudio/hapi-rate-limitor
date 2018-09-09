@@ -100,7 +100,7 @@ await server.register({
     namespace: 'hapi-rate-limitor',
     max: 2, // a maximum of 2 requests
     duration: 1000 // per second (the value is in milliseconds),
-    userIdKey: 'email',
+    userIdKey: 'id',
     userLimitKey: 'rateLimit'
   }
 })
