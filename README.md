@@ -11,7 +11,7 @@
     <a href="#installation"><strong>Installation</strong></a> ·
     <a href="#usage"><strong>Usage</strong></a> ·
     <a href="#plugin-options"><strong>Plugin Options</strong></a> ·
-    <a href="#route-options"><strong>Plugin Options</strong></a> ·
+    <a href="#route-options"><strong>Route Options</strong></a> ·
     <a href="#response-headers"><strong>Response Headers</strong></a>
   </p>
   <br/>
