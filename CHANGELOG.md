@@ -2,8 +2,14 @@
 
 ## [Unreleased]
 
-### Changed
-- tba.
+### Updated
+- fix user-specific rate limits and use the userId as identifier
+- switch from `lab` and `code` to `AVA` for testing
+- add NPM command to calculate coverage
+
+### Deleted
+- unused `.prettierignore` file
+
 
 
 ## [1.1.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.0...v1.1.1) - 2018-08-21
