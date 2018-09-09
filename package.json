@@ -33,7 +33,8 @@
   },
   "scripts": {
     "test": "ava",
-    "prepush": "npm test"
+    "prepush": "npm test",
+    "coverage": "nyc ava"
   },
   "dependencies": {
     "async-ratelimiter": "~1.1.2",
@@ -51,6 +52,7 @@
     "eslint-plugin-promise": "~4.0.0",
     "eslint-plugin-standard": "~3.1.0",
     "hapi": "~17.5.4",
-    "hoek": "~5.0.4"
+    "hoek": "~5.0.4",
+    "nyc": "~13.0.1"
   }
 }
