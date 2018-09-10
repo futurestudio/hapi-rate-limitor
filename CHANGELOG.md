@@ -11,6 +11,9 @@
 ### Deleted
 - unused `.prettierignore` file
 
+### Breaking Changes
+
+- `userLimitKey` becomes `userLimitAttribute` in 2.0: if you used dynamic rate limits with `userLimitKey`, you need to change it to `userLimitAttribute`.
 
 
 ## [1.1.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.0...v1.1.1) - 2018-08-21
