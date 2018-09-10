@@ -11,7 +11,7 @@ Test.before(async ({context}) => {
     plugin: require('../lib/index'),
     options: {
       max: 1,
-      duration: 300, // 100ms
+      duration: 300,
       namespace: 'reset-response-headers'
     }
   })

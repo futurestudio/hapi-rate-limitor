@@ -10,7 +10,7 @@ async function initializeServer (options) {
     plugin: require('../lib/index'),
     options: Object.assign({
       max: 1000,
-      duration: 25 * 1000, // 25s
+      duration: 25 * 1000,
       namespace: `user-limits-${Date.now()}`
     }, options)
   })

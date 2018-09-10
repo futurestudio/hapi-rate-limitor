@@ -10,10 +10,10 @@ Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
     plugin: require('../lib'),
     options: {
       max: 1000,
-      duration: 1 * 1000, // 1s
+      duration: 1000,
       namespace: `route-limits-${Date.now()}`,
-      userIdKey: 'id',
-      userLimitKey: 'rateLimit'
+      userAttribute: 'id',
+      userLimitAttribute: 'rateLimit'
     }
   })
 

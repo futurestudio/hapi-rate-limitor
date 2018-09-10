@@ -10,7 +10,7 @@ Test.before(async ({ context }) => {
     plugin: require('../lib/index'),
     options: {
       max: 1000,
-      duration: 5 * 1000, // 5s
+      duration: 5 * 1000,
       namespace: 'success-response-headers'
     }
   })

@@ -84,8 +84,8 @@ await server.register({
 Customize the plugin’s default configuration with the following options:
 
 - **redis**: `(object)`, default: `undefined` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
-- **userIdKey**: `(string)`, default: `'id'` — define the property name that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
-- **userLimitKey**: `(string)`, default: `'rateLimit'` — define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+- **userAttribute**: `(string)`, default: `'id'` — credentials property that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+- **userLimitAttribute**: `(string)`, default: `'rateLimit'` — define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -100,8 +100,8 @@ await server.register({
     namespace: 'hapi-rate-limitor',
     max: 2, // a maximum of 2 requests
     duration: 1000 // per second (the value is in milliseconds),
-    userIdKey: 'id',
-    userLimitKey: 'rateLimit'
+    userAttribute: 'id',
+    userLimitAttribute: 'rateLimit'
   }
 })
 
