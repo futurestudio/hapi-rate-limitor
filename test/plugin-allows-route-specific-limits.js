@@ -10,7 +10,7 @@ Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
     plugin: require('../lib'),
     options: {
       max: 1000,
-      duration: 25 * 1000, // 25s
+      duration: 1 * 1000, // 1s
       namespace: `route-limits-${Date.now()}`,
       userIdKey: 'id',
       userLimitKey: 'rateLimit'
@@ -99,8 +99,7 @@ Test('does not change the default userIdKey config when set on routes', async (t
         'hapi-rate-limitor': {
           max: 10,
           duration: 60 * 1000, // 60s
-          userIdKey: 'name',
-          userLimitKey: 'rateLimit'
+          userIdKey: 'id'
         }
       },
       handler: () => {
@@ -114,7 +113,8 @@ Test('does not change the default userIdKey config when set on routes', async (t
     method: 'GET',
     credentials: {
       id: 'marcus-route-limit-2',
-      name: 'Marcus'
+      name: 'Marcus',
+      rateLimit: '10000'
     }
   }
 
@@ -124,7 +124,39 @@ Test('does not change the default userIdKey config when set on routes', async (t
   t.is(response1.headers['x-rate-limit-remaining'], 9)
   t.not(response1.headers['x-rate-limit-reset'], null)
 
-  const response2 = await server.inject(request)
+  /**
+   * A second route should identify a user the same
+   * way as defined in the default settinsg. That
+   * means, a route ocnfig for `userIdKey` does
+   * not affect the handling.
+   */
+  server.route({
+    method: 'GET',
+    path: `${url}-2`,
+    config: {
+      plugins: {
+        'hapi-rate-limitor': {
+          max: 10,
+          duration: 60 * 1000, // 60s
+          userIdKey: 'name'
+        }
+      },
+      handler: () => {
+        return 'This is rate limitoooooooor!'
+      }
+    }
+  })
+
+  const request2 = {
+    url: `${url}-2`,
+    method: 'GET',
+    credentials: {
+      id: 'marcus-route-limit-2',
+      name: 'Marcus-2',
+      rateLimit: '25000'
+    }
+  }
+  const response2 = await server.inject(request2)
   t.is(response2.statusCode, 200)
   t.is(response2.headers['x-rate-limit-limit'], 10)
   t.is(response2.headers['x-rate-limit-remaining'], 8)
