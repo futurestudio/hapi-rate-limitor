@@ -12,6 +12,7 @@ Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
       max: 1000,
       duration: 25 * 1000, // 25s
       namespace: `route-limits-${Date.now()}`,
+      userIdKey: 'id',
       userLimitKey: 'rateLimit'
     }
   })
@@ -84,4 +85,48 @@ Test('succeeds an authenticated request without route-specific rate limit and us
   t.is(response.headers['x-rate-limit-limit'], 10)
   t.is(response.headers['x-rate-limit-remaining'], 9)
   t.not(response.headers['x-rate-limit-reset'], null)
+})
+
+Test('does not change the default userIdKey config when set on routes', async (t) => {
+  const server = t.context.server
+  const url = '/route-limit-does-not-touch-identifiers'
+
+  server.route({
+    method: 'GET',
+    path: url,
+    config: {
+      plugins: {
+        'hapi-rate-limitor': {
+          max: 10,
+          duration: 60 * 1000, // 60s
+          userIdKey: 'name',
+          userLimitKey: 'rateLimit'
+        }
+      },
+      handler: () => {
+        return 'This is rate limitoooooooor!'
+      }
+    }
+  })
+
+  const request = {
+    url,
+    method: 'GET',
+    credentials: {
+      id: 'marcus-route-limit-2',
+      name: 'Marcus'
+    }
+  }
+
+  const response1 = await server.inject(request)
+  t.is(response1.statusCode, 200)
+  t.is(response1.headers['x-rate-limit-limit'], 10)
+  t.is(response1.headers['x-rate-limit-remaining'], 9)
+  t.not(response1.headers['x-rate-limit-reset'], null)
+
+  const response2 = await server.inject(request)
+  t.is(response2.statusCode, 200)
+  t.is(response2.headers['x-rate-limit-limit'], 10)
+  t.is(response2.headers['x-rate-limit-remaining'], 8)
+  t.not(response2.headers['x-rate-limit-reset'], null)
 })
