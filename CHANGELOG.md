@@ -6,6 +6,12 @@
 - tba.
 
 
+## [2.0.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.0...v2.0.1) - 2018-09-11
+
+### Updated
+- fix 404 handling: proceed response without rate limit data
+
+
 ## [2.0.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.1...v2.0.0) - 2018-09-11
 
 ### Updated

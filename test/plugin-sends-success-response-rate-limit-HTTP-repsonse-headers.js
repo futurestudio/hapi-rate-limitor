@@ -69,3 +69,19 @@ Test('succeeds requests with different IP addresses and sends rate limit respons
   t.is(response2.headers['x-rate-limit-remaining'], 999)
   t.not(response2.headers['x-rate-limit-reset'], null)
 })
+
+Test('succeeds a 404 request and sends rate limit response headers', async (t) => {
+  const request = {
+    url: '/404',
+    method: 'GET',
+    headers: {
+      'X-Client-IP': '11.22.33.44'
+    }
+  }
+
+  const response = await t.context.server.inject(request)
+  t.is(response.statusCode, 404)
+  t.is(response.headers['x-rate-limit-limit'], undefined)
+  t.is(response.headers['x-rate-limit-remaining'], undefined)
+  t.is(response.headers['x-rate-limit-reset'], undefined)
+})
