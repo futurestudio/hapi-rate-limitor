@@ -3,6 +3,12 @@
 ## [Unreleased]
 
 ### Updated
+- tba.
+
+
+## [2.0.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.1...v2.0.0) - 2018-09-11
+
+### Updated
 - add route-specific rate limits
 - fix user-specific rate limits and use the userId as identifier
 - switch from `lab` and `code` to `AVA` for testing
