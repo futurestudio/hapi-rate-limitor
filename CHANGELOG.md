@@ -15,7 +15,7 @@
 ## [2.0.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.1...v2.0.0) - 2018-09-11
 
 ### Added
-- route-specific rate limits
+- [route-specific rate limits](https://github.com/fs-opensource/hapi-rate-limitor#route-options)
 - NPM command to calculate coverage
 
 ### Updated
