@@ -3,7 +3,7 @@
 const Test = require('ava')
 const Hapi = require('hapi')
 
-Test.before(async ({context}) => {
+Test.before(async ({ context }) => {
   const server = new Hapi.Server()
 
   await server.register({

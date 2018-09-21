@@ -4,7 +4,7 @@ const Test = require('ava')
 const Hapi = require('hapi')
 const Hoek = require('hoek')
 
-Test.before(async ({context}) => {
+Test.before(async ({ context }) => {
   const server = new Hapi.Server()
 
   await server.register({
