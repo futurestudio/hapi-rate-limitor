@@ -154,7 +154,7 @@ await server.route({
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
 
-## User-specific Rate Limits
+## Dynamic Rate Limits
 To make use of user-specific rate limits, you need to configure the `userIdKey` and `userLimitKey` attributes in the `hapi-rate-limitor` options. These attributes are used to determine the rate limit properties. The `userIdKey` is the property name that uniquely identifies a user. The `userLimitKey` is the property name that contains the rate limit value.
 
 ```js
