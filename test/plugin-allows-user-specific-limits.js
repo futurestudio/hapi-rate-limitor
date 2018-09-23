@@ -30,8 +30,8 @@ async function initializeServer (options) {
 
 Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
   context.server = await initializeServer({
-    userIdKey: 'id',
-    userLimitKey: 'rateLimit'
+    userAttribute: 'id',
+    userLimitAttribute: 'rateLimit'
   })
 })
 
@@ -111,7 +111,7 @@ Test('applies user-specific rate limits even for chaning IPs', async (t) => {
 Test('does not use user-specific limits without a userKey', async (t) => {
   const server = await initializeServer({
     max: 100,
-    userLimitKey: 'rateLimit'
+    userLimitAttribute: 'rateLimit'
   })
 
   const request = {
