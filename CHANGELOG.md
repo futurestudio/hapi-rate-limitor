@@ -3,9 +3,9 @@
 ## [Unreleased]
 
 ### Updated
-- rename method to make the code more expressive
-- bump dependencies
+- refactoring: move rate limit handling to class
 - fix lint issues in test files
+- bump dependencies
 
 
 ## [2.0.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.0...v2.0.1) - 2018-09-11
