@@ -56,8 +56,12 @@
     "coverage": "nyc ava",
     "format": "eslint **/*.js --fix",
     "lint": "eslint **/*.js",
-    "prepush": "npm test",
     "test": "npm run lint && nyc ava",
     "test-single": "npm run lint && ava --match"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
   }
 }
