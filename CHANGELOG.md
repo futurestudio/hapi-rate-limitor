@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+- [render a rate limit exceeded `view`](https://github.com/fs-opensource/hapi-rate-limitor#plugin-options)
+
 ### Updated
 - refactoring: move rate limit handling to class
 - fix lint issues in test files
