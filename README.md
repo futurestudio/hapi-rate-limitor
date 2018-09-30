@@ -86,7 +86,7 @@ Customize the plugin’s default configuration with the following options:
 - **redis**: `(object)`, default: `undefined` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
 - **userAttribute**: `(string)`, default: `'id'` — credentials property that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 - **userLimitAttribute**: `(string)`, default: `'rateLimit'` — define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
-- **view**: `(string)`, default: `undefined` — render the view instead of throwing an error (this uses `h.view(<yourView>, { total, remaining, reset }).code(429))
+- **view**: `(string)`, default: `undefined` — render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
