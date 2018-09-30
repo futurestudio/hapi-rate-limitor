@@ -6,38 +6,6 @@
   "bugs": {
     "url": "https://github.com/fs-opensource/hapi-rate-limitor/issues"
   },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "homepage": "https://github.com/fs-opensource/hapi-rate-limitor#readme",
-  "keywords": [
-    "hapi",
-    "hapijs",
-    "hapi.js",
-    "plugin",
-    "rate",
-    "limit",
-    "rate limit",
-    "rate-limit",
-    "rate limiter",
-    "rate limiting",
-    "bruteforce",
-    "brute force",
-    "brute force protection"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fs-opensource/hapi-rate-limitor.git"
-  },
-  "scripts": {
-    "test": "npm run lint && ava",
-    "lint": "eslint **/*.js",
-    "format": "eslint **/*.js --fix",
-    "prepush": "npm test",
-    "coverage": "nyc ava"
-  },
   "dependencies": {
     "async-ratelimiter": "~1.1.2",
     "boom": "~7.2.0",
@@ -53,8 +21,43 @@
     "eslint-plugin-node": "~7.0.1",
     "eslint-plugin-promise": "~4.0.0",
     "eslint-plugin-standard": "~4.0.0",
+    "handlebars": "~4.0.12",
     "hapi": "~17.5.4",
     "hoek": "~5.0.4",
-    "nyc": "~13.0.1"
+    "nyc": "~13.0.1",
+    "vision": "~5.4.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "homepage": "https://github.com/fs-opensource/hapi-rate-limitor#readme",
+  "keywords": [
+    "brute force",
+    "brute force protection",
+    "bruteforce",
+    "hapi",
+    "hapi.js",
+    "hapijs",
+    "limit",
+    "plugin",
+    "rate",
+    "rate limit",
+    "rate limiter",
+    "rate limiting",
+    "rate-limit"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-opensource/hapi-rate-limitor.git"
+  },
+  "scripts": {
+    "coverage": "nyc ava",
+    "format": "eslint **/*.js --fix",
+    "lint": "eslint **/*.js",
+    "prepush": "npm test",
+    "test": "npm run lint && nyc ava",
+    "test-single": "npm run lint && ava --match"
   }
 }
