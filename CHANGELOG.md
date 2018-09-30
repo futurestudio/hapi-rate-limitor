@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2.1.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.1...v2.1.0) - 2018-09-30
+
 ### Added
 - [render a rate limit exceeded `view`](https://github.com/fs-opensource/hapi-rate-limitor#plugin-options)
 
@@ -9,6 +11,9 @@
 - refactoring: move rate limit handling to class
 - fix lint issues in test files
 - bump dependencies
+
+### Deleted
+- Travis testing for Node.js v9
 
 
 ## [2.0.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.0...v2.0.1) - 2018-09-11
