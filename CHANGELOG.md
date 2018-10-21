@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [2.2.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.1.0...v2.2.0) - 2018-10-21
+
+### Updated
+- extract ID from authenticated requests even without user limit
+- extract user limit even without user identifier
+- apply user’s max on routes with rate limit config
+
+
 ## [2.1.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.1...v2.1.0) - 2018-09-30
 
 ### Added
