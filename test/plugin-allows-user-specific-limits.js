@@ -108,7 +108,7 @@ Test('applies user-specific rate limits even for chaning IPs', async (t) => {
   t.not(response2.headers['x-rate-limit-reset'], null)
 })
 
-Test('does not use user-specific limits without a userKey', async (t) => {
+Test('use user-specific limits even without a userKey', async (t) => {
   const server = await initializeServer({
     max: 100,
     userLimitAttribute: 'rateLimit'
@@ -122,13 +122,13 @@ Test('does not use user-specific limits without a userKey', async (t) => {
     },
     credentials: {
       name: 'Marcus',
-      rateLimit: '2000'
+      rateLimit: 2000
     }
   }
 
   const response = await server.inject(request)
   t.is(response.statusCode, 200)
-  t.is(response.headers['x-rate-limit-limit'], 100)
-  t.is(response.headers['x-rate-limit-remaining'], 99)
+  t.is(response.headers['x-rate-limit-limit'], 2000)
+  t.is(response.headers['x-rate-limit-remaining'], 1999)
   t.not(response.headers['x-rate-limit-reset'], null)
 })

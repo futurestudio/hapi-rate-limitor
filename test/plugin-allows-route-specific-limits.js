@@ -3,7 +3,7 @@
 const Test = require('ava')
 const Hapi = require('hapi')
 
-Test.beforeEach('Use user-specific rate limit,', async ({ context }) => {
+Test.beforeEach('Use route-specific rate limit,', async ({ context }) => {
   const server = new Hapi.Server()
 
   await server.register({
@@ -31,12 +31,10 @@ Test('uses the route-specific limit', async (t) => {
       plugins: {
         'hapi-rate-limitor': {
           max: 10,
-          duration: 1000 * 60 // per minute
+          duration: 1000 * 60
         }
       },
-      handler: () => {
-        return 'This is rate limitoooooooor!'
-      }
+      handler: () => 'This is rate limitoooooooor!'
     }
   })
 
@@ -52,7 +50,7 @@ Test('uses the route-specific limit', async (t) => {
   t.not(response.headers['x-rate-limit-reset'], null)
 })
 
-Test('succeeds an authenticated request without route-specific rate limit and uses the route-limit, not user-limit', async (t) => {
+Test('succeeds an authenticated request with route-specific rate limit and uses the route-limit, not default limit', async (t) => {
   const server = t.context.server
 
   server.route({
@@ -65,9 +63,7 @@ Test('succeeds an authenticated request without route-specific rate limit and us
           duration: 60 * 1000 // 60s
         }
       },
-      handler: () => {
-        return 'This is rate limitoooooooor!'
-      }
+      handler: () => 'This is rate limitoooooooor!'
     }
   })
 
@@ -84,6 +80,42 @@ Test('succeeds an authenticated request without route-specific rate limit and us
   t.is(response.statusCode, 200)
   t.is(response.headers['x-rate-limit-limit'], 10)
   t.is(response.headers['x-rate-limit-remaining'], 9)
+  t.not(response.headers['x-rate-limit-reset'], null)
+})
+
+Test('succeeds an authenticated request with user-specific limit and uses the route-limit, not user-limit', async (t) => {
+  const server = t.context.server
+
+  server.route({
+    method: 'GET',
+    path: '/route-limit-overrides-default-limit',
+    config: {
+      plugins: {
+        'hapi-rate-limitor': {
+          max: 15,
+          duration: 60 * 1000 // 60s
+        }
+      },
+      handler: () => 'This is rate limitoooooooor!'
+    }
+  })
+
+  const request = {
+    url: '/route-limit-overrides-default-limit',
+    method: 'GET',
+    credentials: {
+      id: 'marcus-route-limit-1',
+      limit: 123,
+      name: 'Marcus',
+      userAttribute: 'id',
+      userLimitAttribute: 'limit'
+    }
+  }
+
+  const response = await server.inject(request)
+  t.is(response.statusCode, 200)
+  t.is(response.headers['x-rate-limit-limit'], 15)
+  t.is(response.headers['x-rate-limit-remaining'], 14)
   t.not(response.headers['x-rate-limit-reset'], null)
 })
 
