@@ -1,8 +1,11 @@
 # Changelog
 
-## [Unreleased]
 
-- tba.
+## [2.3.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.2.0...v2.3.0) - 2018-10-xx
+
+### Added
+- `enabled` plugin option: allows you to disable the plugin, e.g. when running tests
+- `enabled` route option: disable the plugin for individual routes that would eat up the user’s rate limit, e.g. assets
 
 
 ## [2.2.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.1.0...v2.2.0) - 2018-10-21
