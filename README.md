@@ -28,6 +28,8 @@
 
 ------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fs-opensource/hapi-rate-limitor.svg)](https://greenkeeper.io/)
+
 <p align="center"><sup>The <a href="https://futurestud.io">Future Studio University</a> supports development of this hapi plugin 🚀</sup>
 <br><b>
 Join the <a href="https://futurestud.io/university">Future Studio University and Skyrocket in Node.js</a></b>
