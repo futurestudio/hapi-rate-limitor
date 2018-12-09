@@ -9,7 +9,7 @@
   "dependencies": {
     "async-ratelimiter": "~1.1.2",
     "boom": "~7.3.0",
-    "ioredis": "~4.2.2",
+    "ioredis": "~4.3.0",
     "lodash": "~4.17.11",
     "request-ip": "~2.1.3"
   },
