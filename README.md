@@ -84,12 +84,18 @@ await server.register({
 ## Plugin Options
 Customize the plugin’s default configuration with the following options:
 
-- **`redis`**: (object), default: `undefined` — use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
-- **`extensionPoint`**: (string), default: `'onPostAuth'` — the [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) for rate limiting
-- **`userAttribute`**: (string), default: `'id'` — credentials property that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
-- **`userLimitAttribute`**: (string), default: `'rateLimit'` — define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
-- **`view`**: (string), default: `undefined` — render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
-- **`enabled`**: (boolean), default: `true` — enabled or disable the plugin, e.g. when running tests
+- **`redis`**: (object), default: `undefined`
+  - use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
+- **`extensionPoint`**: (string), default: `'onPostAuth'`
+  - the [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) for rate limiting
+- **`userAttribute`**: (string), default: `'id'`
+  - credentials property that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+- **`userLimitAttribute`**: (string), default: `'rateLimit'`
+  - define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+- **`view`**: (string), default: `undefined`
+  - render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
+- **`enabled`**: (boolean), default: `true`
+  - enabled or disable the plugin, e.g. when running tests
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -103,11 +109,11 @@ await server.register({
     },
     extensionPoint: 'onPreAuth',
     namespace: 'hapi-rate-limitor',
-    max: 2, // a maximum of 2 requests
-    duration: 1000 // per second (the value is in milliseconds),
+    max: 2,                            // a maximum of 2 requests
+    duration: 1000                     // per second (the value is in milliseconds),
     userAttribute: 'id',
     userLimitAttribute: 'rateLimit',
-    view: 'rate-limit-exceeded', // render this view when the rate limit exceeded
+    view: 'rate-limit-exceeded',       // render this view when the rate limit exceeded
     enabled: true
   }
 })
@@ -134,7 +140,7 @@ await server.register({
       host: '127.0.0.1'
     },
     namespace: 'hapi-rate-limitor',
-    max: 60, // a maximum of 60 requests
+    max: 60,             // a maximum of 60 requests
     duration: 60 * 1000, // per minute (the value is in milliseconds)
   }
 })
@@ -147,10 +153,10 @@ await server.route({
       // do the login handling
     },
     plugins: {
-      'hapi-rate-limitor': { // route config for `/login`
-        max: 5, // a maximum of 5 requests
+      'hapi-rate-limitor': {
+        max: 5,              // a maximum of 5 requests
         duration: 60 * 1000, // per minute
-        enabled: false // but it’s actually not enabled ;-)
+        enabled: false       // but it’s actually not enabled ;-)
       }
     }
   }
@@ -171,7 +177,7 @@ await server.register({
   options: {
     userLimitId: 'id',
     userLimitKey: 'rateLimit',
-    max: 500, // a maximum of 500 requests (default is 2500)
+    max: 500,                // a maximum of 500 requests (default is 2500)
     duration: 60 * 60 * 1000 // per hour (the value is in milliseconds)
     // other plugin options
   }
