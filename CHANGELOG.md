@@ -1,10 +1,15 @@
 # Changelog
 
 
-## [2.3.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.3.0...v2.3.1) - 2018-xx-xx
+## [2.4.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.3.1...v2.4.0) - 2018-12-12
+
+### Added
+- plugin option `extensionPoint`: [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) when the plugin should apply rate limiting
 
 ### Updated
 - bump dependencies
+- refined plugin options overview in Readme
+- improved formatting of code examples in Readme
 
 
 ## [2.3.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.2.0...v2.3.0) - 2018-10-29
