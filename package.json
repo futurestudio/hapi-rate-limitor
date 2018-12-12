@@ -23,6 +23,7 @@
     "eslint-plugin-standard": "~4.0.0",
     "handlebars": "~4.0.12",
     "hapi": "~17.8.1",
+    "hapi-auth-basic": "~5.0.0",
     "hoek": "~6.1.2",
     "husky": "~1.2.0",
     "nyc": "~13.1.0",
