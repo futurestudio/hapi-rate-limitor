@@ -96,6 +96,8 @@ Customize the plugin’s default configuration with the following options:
   - render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
 - **`enabled`**: (boolean), default: `true`
   - enabled or disable the plugin, e.g. when running tests
+- **`skip`**: (function), default: `() => false`
+  - a function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -109,12 +111,15 @@ await server.register({
     },
     extensionPoint: 'onPreAuth',
     namespace: 'hapi-rate-limitor',
-    max: 2,                            // a maximum of 2 requests
-    duration: 1000                     // per second (the value is in milliseconds),
+    max: 2,                                   // a maximum of 2 requests
+    duration: 1000                            // per second (the value is in milliseconds),
     userAttribute: 'id',
     userLimitAttribute: 'rateLimit',
-    view: 'rate-limit-exceeded',       // render this view when the rate limit exceeded
+    view: 'rate-limit-exceeded',              // render this view when the rate limit exceeded
     enabled: true
+    skip: (request) => {
+      return request.path.includes('/admin')  // example: disable rate limiting for the admin panel
+    }
   }
 })
 
