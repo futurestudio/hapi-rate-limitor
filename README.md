@@ -84,20 +84,20 @@ await server.register({
 ## Plugin Options
 Customize the plugin’s default configuration with the following options:
 
-- **`redis`**: (object), default: `undefined`
+- **`redis`**: Object, default: `undefined`
   - use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
-- **`extensionPoint`**: (string), default: `'onPostAuth'`
+- **`extensionPoint`**: String, default: `'onPostAuth'`
   - the [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) for rate limiting
-- **`userAttribute`**: (string), default: `'id'`
+- **`userAttribute`**: String, default: `'id'`
   - credentials property that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
-- **`userLimitAttribute`**: (string), default: `'rateLimit'`
+- **`userLimitAttribute`**: String, default: `'rateLimit'`
   - define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
-- **`view`**: (string), default: `undefined`
+- **`view`**: String, default: `undefined`
   - render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
-- **`enabled`**: (boolean), default: `true`
+- **`enabled`**: Boolean, default: `true`
   - enabled or disable the plugin, e.g. when running tests
-- **`skip`**: (function), default: `() => false`
-  - a function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
+- **`skip`**: Function, default: `() => false`
+  - an async function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -111,14 +111,14 @@ await server.register({
     },
     extensionPoint: 'onPreAuth',
     namespace: 'hapi-rate-limitor',
-    max: 2,                                   // a maximum of 2 requests
-    duration: 1000                            // per second (the value is in milliseconds),
+    max: 2,                                     // a maximum of 2 requests
+    duration: 1000                              // per second (the value is in milliseconds),
     userAttribute: 'id',
     userLimitAttribute: 'rateLimit',
-    view: 'rate-limit-exceeded',              // render this view when the rate limit exceeded
+    view: 'rate-limit-exceeded',                // render this view when the rate limit exceeded
     enabled: true
-    skip: (request) => {
-      return request.path.includes('/admin')  // example: disable rate limiting for the admin panel
+    skip: async (request) => {
+      return request.path.includes('/admin')    // example: disable rate limiting for the admin panel
     }
   }
 })
