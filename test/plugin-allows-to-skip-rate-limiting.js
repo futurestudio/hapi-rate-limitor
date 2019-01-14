@@ -63,3 +63,51 @@ Test('Does not skip rate limiting when skip() returns false', async (t) => {
   t.is(response.headers['x-rate-limit-remaining'], 99)
   t.not(response.headers['x-rate-limit-reset'], undefined)
 })
+
+Test('Skips rate limiting when skip() returns false, but not enabled on route', async (t) => {
+  const server = await initializeServer()
+
+  server.route({
+    method: 'GET',
+    path: '/',
+    options: {
+      plugins: { 'hapi-rate-limitor': { enabled: false } },
+      handler: () => 'success'
+    }
+  })
+
+  const requestDisabled = {
+    url: '/',
+    method: 'GET'
+  }
+
+  const response = await server.inject(requestDisabled)
+  t.is(response.statusCode, 200)
+  t.is(response.headers['x-rate-limit-limit'], undefined)
+  t.is(response.headers['x-rate-limit-remaining'], undefined)
+  t.is(response.headers['x-rate-limit-reset'], undefined)
+})
+
+Test('Skips rate limiting when enabled on route, but skip() returns true', async (t) => {
+  const server = await initializeServer()
+
+  server.route({
+    method: 'GET',
+    path: '/admin',
+    options: {
+      plugins: { 'hapi-rate-limitor': { enabled: true } },
+      handler: () => 'success'
+    }
+  })
+
+  const requestDisabled = {
+    url: '/admin',
+    method: 'GET'
+  }
+
+  const response = await server.inject(requestDisabled)
+  t.is(response.statusCode, 200)
+  t.is(response.headers['x-rate-limit-limit'], undefined)
+  t.is(response.headers['x-rate-limit-remaining'], undefined)
+  t.is(response.headers['x-rate-limit-reset'], undefined)
+})
