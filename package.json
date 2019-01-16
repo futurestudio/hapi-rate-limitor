@@ -33,6 +33,11 @@
     "node": ">=8.0.0"
   },
   "homepage": "https://github.com/fs-opensource/hapi-rate-limitor#readme",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  },
   "keywords": [
     "brute force",
     "brute force protection",
@@ -60,10 +65,5 @@
     "lint": "eslint **/*.js",
     "test": "npm run lint && nyc ava",
     "test-single": "npm run lint && ava --match"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run lint"
-    }
   }
 }
