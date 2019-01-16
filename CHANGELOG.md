@@ -1,7 +1,7 @@
 # Changelog
 
 
-## [2.5.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.4.0...v2.5.0) - 2019-01-xx
+## [2.5.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.4.0...v2.5.0) - 2019-01-16
 
 ### Added
 - plugin option `skip`: a function that determines whether to skip rate limiting for a request
