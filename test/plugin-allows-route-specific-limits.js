@@ -70,9 +70,12 @@ Test('succeeds an authenticated request with route-specific rate limit and uses 
   const request = {
     url: '/route-limit-overrides-user-limit',
     method: 'GET',
-    credentials: {
-      id: 'marcus-route-limit-1',
-      name: 'Marcus'
+    auth: {
+      strategy: 'default',
+      credentials: {
+        id: 'marcus-route-limit-1',
+        name: 'Marcus'
+      }
     }
   }
 
@@ -103,12 +106,15 @@ Test('succeeds an authenticated request with user-specific limit and uses the ro
   const request = {
     url: '/route-limit-overrides-default-limit',
     method: 'GET',
-    credentials: {
-      id: 'marcus-route-limit-1',
-      limit: 123,
-      name: 'Marcus',
-      userAttribute: 'id',
-      userLimitAttribute: 'limit'
+    auth: {
+      strategy: 'default',
+      credentials: {
+        id: 'marcus-route-limit-1',
+        limit: 123,
+        name: 'Marcus',
+        userAttribute: 'id',
+        userLimitAttribute: 'limit'
+      }
     }
   }
 
@@ -143,10 +149,13 @@ Test('does not change the default userIdKey config when set on routes', async (t
   const request = {
     url,
     method: 'GET',
-    credentials: {
-      id: 'marcus-route-limit-2',
-      name: 'Marcus',
-      rateLimit: '10000'
+    auth: {
+      strategy: 'default',
+      credentials: {
+        id: 'marcus-route-limit-2',
+        name: 'Marcus',
+        rateLimit: '10000'
+      }
     }
   }
 
@@ -182,10 +191,13 @@ Test('does not change the default userIdKey config when set on routes', async (t
   const request2 = {
     url: `${url}-2`,
     method: 'GET',
-    credentials: {
-      id: 'marcus-route-limit-2',
-      name: 'Marcus-2',
-      rateLimit: '25000'
+    auth: {
+      strategy: 'default',
+      credentials: {
+        id: 'marcus-route-limit-2',
+        name: 'Marcus-2',
+        rateLimit: '25000'
+      }
     }
   }
   const response2 = await server.inject(request2)

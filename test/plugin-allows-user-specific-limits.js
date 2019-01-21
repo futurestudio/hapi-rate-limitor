@@ -39,10 +39,13 @@ Test('succeeds an authenticated request and uses user-specific limit', async (t)
   const request = {
     url: '/',
     method: 'GET',
-    credentials: {
-      id: 'marcus-user-limit-1',
-      name: 'Marcus',
-      rateLimit: 2500
+    auth: {
+      strategy: 'default',
+      credentials: {
+        id: 'marcus-user-limit-1',
+        name: 'Marcus',
+        rateLimit: 2500
+      }
     }
   }
 
@@ -57,9 +60,12 @@ Test('succeeds an authenticated request without user-specific rate limit (fallba
   const request = {
     url: '/',
     method: 'GET',
-    credentials: {
-      id: 'marcus-user-limit-2',
-      name: 'Marcus'
+    auth: {
+      strategy: 'default',
+      credentials: {
+        id: 'marcus-user-limit-2',
+        name: 'Marcus'
+      }
     }
   }
 
@@ -83,7 +89,10 @@ Test('applies user-specific rate limits even for chaning IPs', async (t) => {
     headers: {
       'x-forwarded-for': '1.2.3.4'
     },
-    credentials
+    auth: {
+      strategy: 'default',
+      credentials
+    }
   }
 
   const response = await t.context.server.inject(request1)
@@ -98,7 +107,10 @@ Test('applies user-specific rate limits even for chaning IPs', async (t) => {
     headers: {
       'x-forwarded-for': '5.6.7.8'
     },
-    credentials
+    auth: {
+      strategy: 'default',
+      credentials
+    }
   }
 
   const response2 = await t.context.server.inject(request2)
@@ -120,9 +132,12 @@ Test('use user-specific limits even without a userKey', async (t) => {
     headers: {
       'x-forwarded-for': '1.2.3.4'
     },
-    credentials: {
-      name: 'Marcus',
-      rateLimit: 2000
+    auth: {
+      strategy: 'default',
+      credentials: {
+        name: 'Marcus',
+        rateLimit: 2000
+      }
     }
   }
 
