@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [2.5.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.5.0...v2.5.1) - 2019-01-22
+
+### Updated
+- update tests for hapi 18
+- bump dependencies
+
+
 ## [2.5.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.4.0...v2.5.0) - 2019-01-16
 
 ### Added
