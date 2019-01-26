@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/fs-opensource/hapi-rate-limitor/blob/master/media/hapi-rate-limitor.png?raw=true" alt="hapi-rate-limitor logo" width="471" style="max-width:100%;">
+  <img src="https://github.com/futurestudio/hapi-rate-limitor/blob/master/media/hapi-rate-limitor.png?raw=true" alt="hapi-rate-limitor logo" width="471" style="max-width:100%;">
   <br/>
   <br/>
 
@@ -17,10 +17,10 @@
   <br/>
   <br/>
   <p>
-    <a href="https://travis-ci.org/fs-opensource/hapi-rate-limitor"><img src="https://camo.githubusercontent.com/9f56ef242c6f588f74f39f0bd61c1acd34d853af/68747470733a2f2f7472617669732d63692e6f72672f66732d6f70656e736f757263652f686170692d67656f2d6c6f636174652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/fs-opensource/hapi-rate-limitor.svg?branch=master" style="max-width:100%;"></a>
-    <a href="https://snyk.io/test/github/fs-opensource/hapi-rate-limitor"><img src="https://snyk.io/test/github/fs-opensource/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/fs-opensource/hapi-rate-limitor" style="max-width:100%;"></a>
+    <a href="https://travis-ci.org/futurestudio/hapi-rate-limitor"><img src="https://camo.githubusercontent.com/9f56ef242c6f588f74f39f0bd61c1acd34d853af/68747470733a2f2f7472617669732d63692e6f72672f66732d6f70656e736f757263652f686170692d67656f2d6c6f636174652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" style="max-width:100%;"></a>
+    <a href="https://snyk.io/test/github/futurestudio/hapi-rate-limitor"><img src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" alt="hapi-rate-limitor Version" data-canonical-src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" style="max-width:100%;"></a>
-    <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://camo.githubusercontent.com/051af59d851fe8e39db57c2a3648caca6d4c4d72/68747470733a2f2f6261646765732e677265656e6b65657065722e696f2f66732d6f70656e736f757263652f686170692d726174652d6c696d69746f722e737667" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/fs-opensource/hapi-rate-limitor.svg" style="max-width:100%;"></a>
+    <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://camo.githubusercontent.com/051af59d851fe8e39db57c2a3648caca6d4c4d72/68747470733a2f2f6261646765732e677265656e6b65657065722e696f2f66732d6f70656e736f757263652f686170692d726174652d6c696d69746f722e737667" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" style="max-width:100%;"></a>
   </p>
   <p>
     <em>Follow <a href="http://twitter.com/marcuspoehls">@marcuspoehls</a> for updates!</em>
@@ -89,9 +89,9 @@ Customize the plugin’s default configuration with the following options:
 - **`extensionPoint`**: String, default: `'onPostAuth'`
   - the [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) for rate limiting
 - **`userAttribute`**: String, default: `'id'`
-  - credentials property that identifies a user/request on [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+  - credentials property that identifies a user/request on [dynamic rate limits](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 - **`userLimitAttribute`**: String, default: `'rateLimit'`
-  - define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+  - define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 - **`view`**: String, default: `undefined`
   - render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
 - **`enabled`**: Boolean, default: `true`
@@ -220,7 +220,7 @@ The plugin sets the following response headers:
 
 ## Feature Requests
 Do you miss a feature? Please don’t hesitate to
-[create an issue](https://github.com/fs-opensource/hapi-rate-limitor/issues) with a short description of your desired addition to this plugin.
+[create an issue](https://github.com/futurestudio/hapi-rate-limitor/issues) with a short description of your desired addition to this plugin.
 
 
 ## Links & Resources
@@ -244,5 +244,5 @@ MIT © [Future Studio](https://futurestud.io)
 ---
 
 > [futurestud.io](https://futurestud.io) &nbsp;&middot;&nbsp;
-> GitHub [@fs-opensource](https://github.com/fs-opensource/) &nbsp;&middot;&nbsp;
+> GitHub [@futurestudio](https://github.com/futurestudio/) &nbsp;&middot;&nbsp;
 > Twitter [@futurestud_io](https://twitter.com/futurestud_io)
