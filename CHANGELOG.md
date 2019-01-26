@@ -1,6 +1,12 @@
 # Changelog
 
 
+## [2.5.2](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.5.1...v2.5.2) - 2019-01-26
+
+### Updated
+- Readme: rename GitHub references `fs-opensource -> futurestudio`
+
+
 ## [2.5.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.5.0...v2.5.1) - 2019-01-22
 
 ### Updated
