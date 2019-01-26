@@ -1,7 +1,7 @@
 {
   "name": "hapi-rate-limitor",
   "description": "hapi plugin to prevent brute-force attacks",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "author": "Future Studio <info@futurestud.io>",
   "bugs": {
     "url": "https://github.com/fs-opensource/hapi-rate-limitor/issues"
