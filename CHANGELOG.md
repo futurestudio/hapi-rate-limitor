@@ -1,20 +1,20 @@
 # Changelog
 
 
-## [2.5.2](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.5.1...v2.5.2) - 2019-01-26
+## [2.5.2](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.1...v2.5.2) - 2019-01-26
 
 ### Updated
-- Readme: rename GitHub references `fs-opensource -> futurestudio`
+- Readme: rename GitHub references `futurestudio -> futurestudio`
 
 
-## [2.5.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.5.0...v2.5.1) - 2019-01-22
+## [2.5.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.0...v2.5.1) - 2019-01-22
 
 ### Updated
 - update tests for hapi 18
 - bump dependencies
 
 
-## [2.5.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.4.0...v2.5.0) - 2019-01-16
+## [2.5.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.4.0...v2.5.0) - 2019-01-16
 
 ### Added
 - plugin option `skip`: a function that determines whether to skip rate limiting for a request
@@ -23,7 +23,7 @@
 - bump dependencies
 
 
-## [2.4.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.3.0...v2.4.0) - 2018-12-12
+## [2.4.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.3.0...v2.4.0) - 2018-12-12
 
 ### Added
 - plugin option `extensionPoint`: [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) when the plugin should apply rate limiting
@@ -34,7 +34,7 @@
 - improved formatting of code examples in Readme
 
 
-## [2.3.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.2.0...v2.3.0) - 2018-10-29
+## [2.3.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.2.0...v2.3.0) - 2018-10-29
 
 ### Added
 - `enabled` plugin option: allows you to disable the plugin, e.g. when running tests
@@ -44,7 +44,7 @@
 - test for Node.js 11
 
 
-## [2.2.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.1.0...v2.2.0) - 2018-10-21
+## [2.2.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.1.0...v2.2.0) - 2018-10-21
 
 ### Updated
 - extract ID from authenticated requests even without user limit
@@ -53,10 +53,10 @@
 - bump dependencies
 
 
-## [2.1.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.1...v2.1.0) - 2018-09-30
+## [2.1.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.0.1...v2.1.0) - 2018-09-30
 
 ### Added
-- [render a rate limit exceeded `view`](https://github.com/fs-opensource/hapi-rate-limitor#plugin-options)
+- [render a rate limit exceeded `view`](https://github.com/futurestudio/hapi-rate-limitor#plugin-options)
 
 ### Updated
 - refactoring: move rate limit handling to class
@@ -67,16 +67,16 @@
 - Travis testing for Node.js v9
 
 
-## [2.0.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v2.0.0...v2.0.1) - 2018-09-11
+## [2.0.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.0.0...v2.0.1) - 2018-09-11
 
 ### Updated
 - fix 404 handling: proceed response without rate limit data
 
 
-## [2.0.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.1...v2.0.0) - 2018-09-11
+## [2.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v1.1.1...v2.0.0) - 2018-09-11
 
 ### Added
-- [route-specific rate limits](https://github.com/fs-opensource/hapi-rate-limitor#route-options)
+- [route-specific rate limits](https://github.com/futurestudio/hapi-rate-limitor#route-options)
 - NPM command to calculate coverage
 
 ### Updated
@@ -91,16 +91,16 @@
 - `userLimitKey` becomes `userLimitAttribute` in 2.0: if you used dynamic rate limits with `userLimitKey`, you need to change it to `userLimitAttribute`.
 
 
-## [1.1.1](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.1.0...v1.1.1) - 2018-08-21
+## [1.1.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v1.1.0...v1.1.1) - 2018-08-21
 
 ### Updated
 - Readme: quick navigation and logo size fix for small screens
 
 
-## [1.1.0](https://github.com/fs-opensource/hapi-rate-limitor/compare/v1.0.0...v1.1.0) - 2018-08-08
+## [1.1.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v1.0.0...v1.1.0) - 2018-08-08
 
 ### Added
-- [dynamic rate limits](https://github.com/fs-opensource/hapi-rate-limitor#dynamic-rate-limits)
+- [dynamic rate limits](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits)
 - readme describes rate-limit-related response headers
 - add logo
 
