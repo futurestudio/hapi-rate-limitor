@@ -20,7 +20,7 @@
     <a href="https://travis-ci.org/futurestudio/hapi-rate-limitor"><img src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" alt="Build Status" data-canonical-src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" style="max-width:100%;"></a>
     <a href="https://snyk.io/test/github/futurestudio/hapi-rate-limitor"><img src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" alt="hapi-rate-limitor Version" data-canonical-src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" style="max-width:100%;"></a>
-    <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://camo.githubusercontent.com/051af59d851fe8e39db57c2a3648caca6d4c4d72/68747470733a2f2f6261646765732e677265656e6b65657065722e696f2f66732d6f70656e736f757263652f686170692d726174652d6c696d69746f722e737667" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" style="max-width:100%;"></a>
+    <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" style="max-width:100%;"></a>
   </p>
   <p>
     <em>Follow <a href="http://twitter.com/marcuspoehls">@marcuspoehls</a> for updates!</em>
