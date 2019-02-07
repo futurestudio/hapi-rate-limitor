@@ -21,7 +21,7 @@
     "eslint-plugin-node": "~8.0.1",
     "eslint-plugin-promise": "~4.0.1",
     "eslint-plugin-standard": "~4.0.0",
-    "handlebars": "~4.0.12",
+    "handlebars": "~4.1.0",
     "hapi": "~18.1.0",
     "hapi-auth-basic": "~5.0.0",
     "hoek": "~6.1.2",
