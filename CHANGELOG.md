@@ -1,10 +1,18 @@
 # Changelog
 
 
+## [2.5.3](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.2...v2.5.3) - 2019-02-18
+
+### Updated
+- bump dependencies
+- fix badges in Readme
+- Changelog: rename GitHub references `fs-opensource -> futurestudio`
+
+
 ## [2.5.2](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.1...v2.5.2) - 2019-01-26
 
 ### Updated
-- Readme: rename GitHub references `futurestudio -> futurestudio`
+- Readme: rename GitHub references `fs-opensource -> futurestudio`
 
 
 ## [2.5.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.0...v2.5.1) - 2019-01-22
