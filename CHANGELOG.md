@@ -4,8 +4,8 @@
 ## [2.6.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.3...v2.6.0) - 2019-02-28
 
 ### Added
-- wait for Redis connection at `onPreStart`
-- close Redis connection at `onPostStop`
+- wait for Redis connection `onPreStart`
+- close Redis connection `onPostStop`
 
 
 ## [2.5.3](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.2...v2.5.3) - 2019-02-18
