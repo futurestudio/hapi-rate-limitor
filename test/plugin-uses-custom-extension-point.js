@@ -14,7 +14,6 @@ Test.beforeEach('Render view when rate limit is exceeded,', async ({ context }) 
     }
   })
 
-  await server.initialize()
   context.server = server
 })
 
