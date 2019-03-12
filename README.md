@@ -17,10 +17,11 @@
   <br/>
   <br/>
   <p>
-    <a href="https://travis-ci.org/futurestudio/hapi-rate-limitor"><img src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" alt="Build Status" data-canonical-src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" style="max-width:100%;"></a>
-    <a href="https://snyk.io/test/github/futurestudio/hapi-rate-limitor"><img src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor" style="max-width:100%;"></a>
-    <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" alt="hapi-rate-limitor Version" data-canonical-src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" style="max-width:100%;"></a>
-    <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" alt="Greenkeeper badge" data-canonical-src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" style="max-width:100%;"></a>
+    <a href="https://travis-ci.org/futurestudio/hapi-rate-limitor"><img src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" alt="Build Status"></a>
+    <a href="https://snyk.io/test/github/futurestudio/hapi-rate-limitor"><img src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities"></a>
+    <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" alt="Latest Version"></a>
+      <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/dt/hapi-rate-limitor.svg" alt="Total downloads"></a>
+    <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" alt="Greenkeeper badge"></a>
   </p>
   <p>
     <em>Follow <a href="http://twitter.com/marcuspoehls">@marcuspoehls</a> for updates!</em>
