@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [2.6.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.0...v2.6.1) - 2019-03-xx
+
+### Updated
+- bump `ioredis` dependency from `4.6.3` to `4.9.1`
+- bump `ava` devDependency from `1.3.1` to `1.4.0`
+
+
 ## [2.6.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.5.3...v2.6.0) - 2019-02-28
 
 ### Added
