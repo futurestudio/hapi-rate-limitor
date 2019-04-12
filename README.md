@@ -51,7 +51,7 @@ Each package solves its own problem perfectly. `hapi-rate-limitor` composes the 
 
 
 ## Requirements
-> **hapi v17** and **Node.js v8 (or newer)**
+> **hapi v17 (or later)** and **Node.js v8 (or newer)**
 
 This plugin requires **hapi v17** (or later) and uses async/await which requires **Node.js v8 or newer**.
 
