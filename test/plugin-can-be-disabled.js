@@ -1,7 +1,7 @@
 'use strict'
 
 const Test = require('ava')
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 
 async function initializeServer (options) {
   const server = new Hapi.Server()

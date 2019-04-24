@@ -1,9 +1,9 @@
 'use strict'
 
 const Test = require('ava')
-const Hapi = require('hapi')
 const Path = require('path')
-const Vision = require('vision')
+const Hapi = require('@hapi/hapi')
+const Vision = require('@hapi/vision')
 const Handlebars = require('handlebars')
 
 Test.beforeEach('Render view when rate limit is exceeded,', async ({ context }) => {

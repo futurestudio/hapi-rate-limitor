@@ -1,8 +1,8 @@
 'use strict'
 
 const Test = require('ava')
-const Hapi = require('hapi')
-const Hoek = require('hoek')
+const Hoek = require('@hapi/hoek')
+const Hapi = require('@hapi/hapi')
 
 Test.before(async ({ context }) => {
   const server = new Hapi.Server()

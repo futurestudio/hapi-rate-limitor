@@ -1,7 +1,7 @@
 'use strict'
 
 const Test = require('ava')
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 
 Test.beforeEach('Create server with rate limit defaults', async ({ context }) => {
   const server = new Hapi.Server()

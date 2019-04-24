@@ -1,12 +1,12 @@
 'use strict'
 
 const Test = require('ava')
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 
 Test.beforeEach('Render view when rate limit is exceeded,', async ({ context }) => {
   const server = new Hapi.Server()
 
-  await server.register(require('hapi-auth-basic'))
+  await server.register(require('@hapi/basic'))
 
   await server.auth.strategy('basic', 'basic', {
     validate: () => {

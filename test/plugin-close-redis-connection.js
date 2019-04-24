@@ -1,7 +1,7 @@
 'use strict'
 
 const Test = require('ava')
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 const RateLimiter = require('../lib/rate-limiter')
 
 Test('Registers onPreStart and onPostStop extensions', async (t) => {
