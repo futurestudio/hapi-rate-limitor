@@ -60,11 +60,7 @@ This plugin requires **hapi v17** (or later) and uses async/await which requires
 Add `hapi-rate-limitor` as a dependency to your project:
 
 ```bash
-# NPM v5 users, this way is yours
 npm i hapi-rate-limitor
-
-# you’re using NPM v4:
-npm i -S hapi-rate-limitor
 ```
 
 
