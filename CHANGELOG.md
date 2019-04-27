@@ -1,7 +1,7 @@
 # Changelog
 
 
-## [2.6.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.0...v2.6.1) - 2019-04-25
+## [2.6.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.0...v2.6.1) - 2019-04-27
 
 ### Updated
 - bump dependencis
