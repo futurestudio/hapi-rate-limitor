@@ -33,7 +33,7 @@
     "eslint-plugin-standard": "~4.0.0",
     "handlebars": "~4.1.2",
     "husky": "~2.2.0",
-    "nyc": "~14.0.0"
+    "nyc": "~14.1.0"
   },
   "engines": {
     "node": ">=8.0.0"
