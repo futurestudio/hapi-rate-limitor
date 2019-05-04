@@ -7,6 +7,7 @@
 - ensure a user-defined view exists on server start, otherwise throw an error
 
 ### Updated
+- bump dependencies
 - minor internal refactorings
 
 
