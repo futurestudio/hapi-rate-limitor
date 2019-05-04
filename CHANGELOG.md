@@ -1,10 +1,13 @@
 # Changelog
 
 
-## [2.6.2](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.1...v2.6.2) - 2019-xx-xx
+## [2.7.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.1...v2.7.0) - 2019-05-04
+
+### Added
+- ensure a user-defined view exists on server start, otherwise throw an error
 
 ### Updated
-- internal method renaming
+- minor internal refactorings
 
 
 ## [2.6.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.0...v2.6.1) - 2019-04-27
