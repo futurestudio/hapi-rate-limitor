@@ -6,7 +6,7 @@ const Hapi = require('@hapi/hapi')
 const Vision = require('@hapi/vision')
 const Handlebars = require('handlebars')
 
-Test.beforeEach('Render view when rate limit is exceeded,', async ({ context }) => {
+async function setupServer (options) {
   const server = new Hapi.Server()
 
   await server.register([
@@ -15,12 +15,12 @@ Test.beforeEach('Render view when rate limit is exceeded,', async ({ context }) 
     },
     {
       plugin: require('../lib'),
-      options: {
+      options: Object.assign({
         view: 'rate-limit-exceeded',
         max: 1,
         duration: 1000,
         namespace: `view-limits-${Date.now()}`
-      }
+      }, options)
     }])
 
   server.views({
@@ -31,11 +31,12 @@ Test.beforeEach('Render view when rate limit is exceeded,', async ({ context }) 
   })
 
   await server.initialize()
-  context.server = server
-})
+
+  return server
+}
 
 Test('plugin renders a view', async (t) => {
-  const server = t.context.server
+  const server = await setupServer()
 
   server.route({
     method: 'GET',
@@ -62,4 +63,10 @@ Test('plugin renders a view', async (t) => {
   t.is(response2.headers['x-rate-limit-limit'], 1)
   t.is(response2.headers['x-rate-limit-remaining'], 0)
   t.not(response2.headers['x-rate-limit-reset'], null)
+})
+
+Test('plugin fails for missing view', async (t) => {
+  await t.throwsAsync(
+    setupServer({ view: 'not-existing-view' })
+  )
 })
