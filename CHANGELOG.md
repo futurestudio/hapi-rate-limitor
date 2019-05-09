@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [2.7.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.0...v2.7.1) - 2019-05-xx
+
+### Updated
+- update to `@hapi/boom` from `boom`
+- bump dependencies
+
+
 ## [2.7.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.6.1...v2.7.0) - 2019-05-04
 
 ### Added
