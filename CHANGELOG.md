@@ -1,11 +1,11 @@
 # Changelog
 
 
-## [2.7.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.0...v2.7.1) - 2019-05-xx
+## [2.7.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.0...v2.7.1) - 2019-05-10
 
 ### Updated
-- test Node.js v12
 - update to `@hapi/boom` from `boom`
+- test Node.js v12
 - bump dependencies
 
 
