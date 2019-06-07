@@ -122,7 +122,7 @@ await server.register({
 
 // went smooth like chocolate :)
 ```
-You can also pass a connection string to ioReds. 
+You can also pass a connection string to ioRedis. 
 
 ```js
 await server.register({
