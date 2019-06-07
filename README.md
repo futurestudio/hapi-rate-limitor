@@ -122,7 +122,8 @@ await server.register({
 
 // went smooth like chocolate :)
 ```
-You can also pass a connection string to ioRedis. 
+
+You can also use a Redis connection string. 
 
 ```js
 await server.register({
@@ -137,8 +138,6 @@ await server.register({
 
 // went smooth like chocolate :)
 ```
-
-
 
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
