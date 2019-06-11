@@ -123,6 +123,22 @@ await server.register({
 // went smooth like chocolate :)
 ```
 
+You can also use a Redis connection string. 
+
+```js
+await server.register({
+  plugin: require('hapi-rate-limitor'),
+  options: {
+    redis: 'redis://lolipop:SOME_PASSWORD@dokku-redis-lolipop:6379',
+    extensionPoint: 'onPreAuth',
+    namespace: 'hapi-rate-limitor'
+    // ... etc
+  }
+})
+
+// went smooth like chocolate :)
+```
+
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
 
 
