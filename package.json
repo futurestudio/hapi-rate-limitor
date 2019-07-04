@@ -17,7 +17,8 @@
     "async-ratelimiter": "~1.2.5",
     "ioredis": "~4.11.1",
     "lodash": "~4.17.11",
-    "request-ip": "~2.1.3"
+    "request-ip": "~2.1.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@hapi/basic": "~5.1.0",
@@ -70,6 +71,9 @@
     "format": "eslint **/*.js --fix",
     "lint": "eslint **/*.js",
     "test": "npm run lint && nyc ava",
-    "test-single": "npm run lint && ava --match"
-  }
+    "test-single": "npm run lint && ava --match",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
