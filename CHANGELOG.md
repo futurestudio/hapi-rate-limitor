@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [2.8.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.1...v2.8.0) - 2019-06-25
+
+### Added
+- support for Redis connection string, like `redis: 'redis://user:pass@dokku-redis-lolipop:6379'` (Thank you Rob! [PR #37](https://github.com/futurestudio/hapi-rate-limitor/pull/37))
+
+### Updated
+- minor code refinements
+- bump dependencies
+
+
 ## [2.7.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.0...v2.7.1) - 2019-05-10
 
 ### Updated
