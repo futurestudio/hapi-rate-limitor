@@ -36,7 +36,7 @@
     "nyc": "~14.1.1"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.9.4"
   },
   "homepage": "https://github.com/futurestudio/hapi-rate-limitor#readme",
   "husky": {
