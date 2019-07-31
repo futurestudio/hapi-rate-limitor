@@ -15,7 +15,7 @@
   "dependencies": {
     "@hapi/boom": "~7.4.2",
     "async-ratelimiter": "~1.2.5",
-    "ioredis": "~4.11.1",
+    "ioredis": "~4.14.0",
     "lodash": "~4.17.11",
     "request-ip": "~2.1.3"
   },
