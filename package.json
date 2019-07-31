@@ -24,7 +24,7 @@
     "@hapi/hapi": "~18.3.1",
     "@hapi/hoek": "~8.1.0",
     "@hapi/vision": "~5.5.2",
-    "ava": "~1.4.1",
+    "ava": "~2.2.0",
     "eslint": "~6.1.0",
     "eslint-config-standard": "~13.0.1",
     "eslint-plugin-import": "~2.18.0",
@@ -36,7 +36,7 @@
     "nyc": "~14.1.1"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.9.4"
   },
   "homepage": "https://github.com/futurestudio/hapi-rate-limitor#readme",
   "husky": {
