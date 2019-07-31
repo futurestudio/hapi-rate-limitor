@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [3.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.8.0...v3.0.0) - 2019-08-xx
+
+### Updated
+- bump dependencies
+- update required Node.js version to `8.9.4`
+
+
 ## [2.8.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.1...v2.8.0) - 2019-06-25
 
 ### Added
