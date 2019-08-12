@@ -95,6 +95,8 @@ Customize the plugin’s default configuration with the following options:
   - enabled or disable the plugin, e.g. when running tests
 - **`skip`**: Function, default: `() => false`
   - an async function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
+- **`whitelistedIps`**: Array, default: `[]`
+  - a array of whitelisted IPs that won’t be rate-limited and requests from such IPs proceed the request lifecycle. Notice that the related responses won’t contain rate limit headers.
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
@@ -116,14 +118,15 @@ await server.register({
     enabled: true
     skip: async (request) => {
       return request.path.includes('/admin')    // example: disable rate limiting for the admin panel
-    }
+    },
+    whitelistedIPs: ['1.1.1.1']
   }
 })
 
 // went smooth like chocolate :)
 ```
 
-You can also use a Redis connection string. 
+You can also use a Redis connection string.
 
 ```js
 await server.register({
