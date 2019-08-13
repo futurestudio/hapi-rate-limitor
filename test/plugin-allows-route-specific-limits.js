@@ -27,7 +27,7 @@ Test('uses the route-specific limit', async (t) => {
   server.route({
     method: 'GET',
     path: '/route-limit',
-    config: {
+    options: {
       plugins: {
         'hapi-rate-limitor': {
           max: 10,
@@ -56,7 +56,7 @@ Test('succeeds an authenticated request with route-specific rate limit and uses 
   server.route({
     method: 'GET',
     path: '/route-limit-overrides-user-limit',
-    config: {
+    options: {
       plugins: {
         'hapi-rate-limitor': {
           max: 10,
@@ -92,7 +92,7 @@ Test('succeeds an authenticated request with user-specific limit and uses the ro
   server.route({
     method: 'GET',
     path: '/route-limit-overrides-default-limit',
-    config: {
+    options: {
       plugins: {
         'hapi-rate-limitor': {
           max: 15,
@@ -132,7 +132,7 @@ Test('does not change the default userIdKey config when set on routes', async (t
   server.route({
     method: 'GET',
     path: url,
-    config: {
+    options: {
       plugins: {
         'hapi-rate-limitor': {
           max: 10,
@@ -174,7 +174,7 @@ Test('does not change the default userIdKey config when set on routes', async (t
   server.route({
     method: 'GET',
     path: `${url}-2`,
-    config: {
+    options: {
       plugins: {
         'hapi-rate-limitor': {
           max: 10,
