@@ -11,6 +11,9 @@
 - update NPM scripts
 - minor code refinements
 
+### Removed
+- Travis testing for Node.js version 11
+
 
 ## [2.8.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.1...v2.8.0) - 2019-06-25
 
