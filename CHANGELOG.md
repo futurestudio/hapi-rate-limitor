@@ -1,11 +1,15 @@
 # Changelog
 
 
-## [3.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.8.0...v3.0.0) - 2019-08-xx
+## [2.9.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.8.0...v2.9.0) - 2019-08-13
+
+### Added
+- add `ipWhitelist` option representing an array of IP addresses that will skip rate limiting
 
 ### Updated
 - bump dependencies
-- update required Node.js version to `8.9.4`
+- update NPM scripts
+- minor code refinements
 
 
 ## [2.8.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.7.1...v2.8.0) - 2019-06-25
