@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@hapi/basic": "~5.1.1",
-    "@hapi/hapi": "~18.3.2",
+    "@hapi/hapi": "~18.4.0",
     "@hapi/hoek": "~8.2.1",
     "@hapi/vision": "~5.5.3",
     "ava": "~2.3.0",
