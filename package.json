@@ -24,7 +24,7 @@
     "@hapi/hapi": "~18.3.2",
     "@hapi/hoek": "~8.2.1",
     "@hapi/vision": "~5.5.3",
-    "ava": "~2.3.0",
+    "ava": "~2.4.0",
     "eslint": "~6.3.0",
     "eslint-config-standard": "~14.1.0",
     "eslint-plugin-import": "~2.18.2",
