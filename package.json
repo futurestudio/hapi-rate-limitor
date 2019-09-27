@@ -13,7 +13,7 @@
     }
   ],
   "dependencies": {
-    "@hapi/boom": "~7.4.3",
+    "@hapi/boom": "~8.0.0",
     "async-ratelimiter": "~1.2.7",
     "ioredis": "~4.14.0",
     "lodash": "~4.17.15",
