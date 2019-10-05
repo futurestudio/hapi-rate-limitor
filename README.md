@@ -119,7 +119,8 @@ await server.register({
     skip: async (request) => {
       return request.path.includes('/admin')    // example: disable rate limiting for the admin panel
     },
-    ipWhitelist: ['1.1.1.1']                    // list of IP addresses skipping rate limiting
+    ipWhitelist: ['1.1.1.1'],                   // list of IP addresses skipping rate limiting
+    emitter: yourEventEmitter,                  // your event emitter instance
   }
 })
 
@@ -143,6 +144,38 @@ await server.register({
 ```
 
 Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ratelimiter#api) for all options.
+
+
+### Events
+You can pass your own event `emitter` instance as a config property while registering the `hapi-rate-limitor` plugin to your hapi server. By default, `hapi-rate-limitor` uses hapi’s server as an event emitter.
+
+```js
+const EventEmitter = require('events')
+const emitter = new EventEmitter()
+
+await server.register({
+  plugin: require('hapi-rate-limitor'),
+  options: {
+    emitter
+    // … other plugin options
+  }
+})
+```
+
+`hapi-rate-limitor` dispatches the following three events in the rate-limiting lifecycle:
+
+- `rate-limit:attempt`: before rate-limiting the request
+- `rate-limit:in-quota`: after rate-limiting and only if the request’s limit is in the quota
+- `rate-limit:exceeded`: after rate-limiting and only if the request’s quota is exceeded
+
+Each event listener receives the related request as the only parameter. Here’s a sample listener:
+
+```js
+
+emitter.on('rate-limit:exceeded', request => {
+  // handle rate-limiting exceeded
+})
+```
 
 
 ## Route Options
