@@ -35,7 +35,8 @@ Test('Connects to Redis onPreStart and closes Redis connection onPostStop', asyn
 })
 
 Test('Connect and disconnect from Redis on limiter start and stop', async (t) => {
-  const limiter = new RateLimiter({})
+  const server = { event: () => {} }
+  const limiter = new RateLimiter(server)
   t.is(limiter.redis.status, 'wait')
 
   await limiter.start()
