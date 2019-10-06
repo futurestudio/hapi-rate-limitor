@@ -5,6 +5,10 @@ const Hapi = require('@hapi/hapi')
 const pEvent = require('p-event')
 const EventEmitter = require('events')
 
+const rejectIn1Sec = new Promise((resolve, reject) => {
+  setTimeout(reject, 1000, new Error('rejected after 1s'))
+})
+
 Test('falls back to server.events by default', async (t) => {
   const server = new Hapi.Server()
 
@@ -73,4 +77,44 @@ Test('uses custom event emitter', async (t) => {
 
   t.truthy(await attempt)
   t.truthy(await inQuota)
+})
+
+Test('fires exceeded event', async (t) => {
+  const server = new Hapi.Server()
+  const emitter = new EventEmitter()
+
+  await server.register({
+    plugin: require('../lib'),
+    options: {
+      max: 1,
+      emitter,
+      namespace: `events-${Date.now()}`
+    }
+  })
+
+  await server.initialize()
+
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: () => 'custom event emitter'
+  })
+
+  const request = {
+    url: '/',
+    method: 'GET'
+  }
+
+  const attempt = pEvent(emitter, 'rate-limit:attempt')
+  const exceeded = pEvent(emitter, 'rate-limit:exceeded')
+
+  // first request won’t exceed the rate limit
+  const response = await server.inject(request)
+  t.is(response.statusCode, 200)
+  t.truthy(await attempt)
+  await t.throwsAsync(Promise.race([exceeded, rejectIn1Sec]))
+
+  // second request exceeds the limit
+  await server.inject(request)
+  t.truthy(Promise.race([exceeded, rejectIn1Sec]))
 })
