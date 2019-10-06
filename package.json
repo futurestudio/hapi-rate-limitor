@@ -67,10 +67,10 @@
     "url": "git+https://github.com/futurestudio/hapi-rate-limitor.git"
   },
   "scripts": {
-    "coverage": "nyc ava",
+    "coverage": "npm test",
     "lint": "eslint **/*.js",
     "lint:fix": "eslint **/*.js --fix",
-    "test": "npm run lint && nyc ava",
-    "test:single": "npm run lint && ava --match"
+    "test": "nyc ava",
+    "test:single": "ava --match"
   }
 }
