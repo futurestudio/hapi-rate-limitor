@@ -230,17 +230,19 @@ Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ra
 
 
 ## Dynamic Rate Limits
-To make use of user-specific rate limits, you need to configure the `userIdKey` and `userLimitKey` attributes in the `hapi-rate-limitor` options. These attributes are used to determine the rate limit properties. The `userIdKey` is the property name that uniquely identifies a user. The `userLimitKey` is the property name that contains the rate limit value.
+To make use of user-specific rate limits, you need to configure the `userAttribute` and `userLimitAttribute` attributes in the `hapi-rate-limitor` options.
+
+These attributes are used to determine the rate limit for an authenticated user. The `userAttribute` is the property name that uniquely identifies a user. The `userLimitAttribute` is the property name that contains the rate limit value.
 
 ```js
 await server.register({
   plugin: require('hapi-rate-limitor'),
   options: {
-    userLimitId: 'id',
-    userLimitKey: 'rateLimit',
-    max: 500,                // a maximum of 500 requests (default is 2500)
-    duration: 60 * 60 * 1000 // per hour (the value is in milliseconds)
-    // other plugin options
+    userAttribute: 'id',
+    userLimitAttribute: 'rateLimit',
+    max: 500,                          // a maximum of 500 requests (default is 2500)
+    duration: 60 * 60 * 1000           // per hour (the value is in milliseconds)
+    // … other plugin options
   }
 })
 ```
@@ -249,15 +251,14 @@ This will calculate the maximum requests individually for each authenticated use
 
 ```js
 /**
- * the authenticated user object may contain
- * a custom rate limit attribute. In this
- * case, it’s called "rateLimit".
+ * the authenticated user object may contain a custom rate limit attribute.
+ * In this case, it’s called "rateLimit".
  */
 request.auth.credentials = {
   id: 'custom-uuid',
   rateLimit: 1750,
   name: 'Marcus'
-  // ... further attributes
+  // … further attributes
 }
 ```
 
