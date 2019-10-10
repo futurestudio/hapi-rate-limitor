@@ -7,11 +7,16 @@
 - `getIp` option allowing you to manually determine the IP address from the request.
   - Example:
     ```js
-      getIp: async (request) => {
-        const ips = request.headers['x-forwarded-for'].split(',')
+    await server.register({
+      plugin: require('hapi-rate-limitor'),
+      options: {
+        getIp: async (request) => {
+          const ips = request.headers['x-forwarded-for'].split(',')
 
-        return ips[ips.length - 1]
-      },
+          return ips[ips.length - 1]
+        }
+      }
+    }
     ```
 - `emitter` option to pass in your custom event emitter
 - dispatch rate limiting events: `rate-limit:attempt`, `rate-limit:in-quota`, `rate-limit:exceeded`
