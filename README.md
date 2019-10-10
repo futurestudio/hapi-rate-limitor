@@ -95,10 +95,12 @@ Customize the plugin’s default configuration with the following options:
   - enabled or disable the plugin, e.g. when running tests
 - **`skip`**: Function, default: `() => false`
   - an async function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
-- **`getIp`**: Function, default: `undefined`
-  - an async function with the signature `async (request)` to manually determine the requesting IP address. This is helpful if your load balancer provides the client IP address as the last item in the list of forwarded addresses (e.g. Heroku and AWS ELB)
 - **`ipWhitelist`**: Array, default: `[]`
   - a array of whitelisted IPs that won’t be rate-limited and requests from such IPs proceed the request lifecycle. Notice that the related responses won’t contain rate limit headers.
+- **`getIp`**: Function, default: `undefined`
+  - an async function with the signature `async (request)` to manually determine the requesting IP address. This is helpful if your load balancer provides the client IP address as the last item in the list of forwarded addresses (e.g. Heroku and AWS ELB)
+- **`emitter`**: Array, default: `server.events`
+  - an event emitter instance used to emit the [rate-limitting events](https://github.com/futurestudio/hapi-rate-limitor#events)
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
 
