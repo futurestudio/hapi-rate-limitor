@@ -1,16 +1,21 @@
 # Changelog
 
 
-## [3.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.9.0...v3.0.0) - 2019-xx-xx
+## [2.10.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.9.0...v2.10.0) - 2019-10-10
 
 ### Added
+- `getIp` option allowing you to manually determine the IP address from the request.
+  - Example:
+  ```js
+    getIp: async (request) => {
+      const ips = request.headers['x-forwarded-for'].split(',')
+
+      return ips[ips.length - 1]
+    },
+  ```
 - `emitter` option to pass in your custom event emitter
 - dispatch rate limiting events: `rate-limit:attempt`, `rate-limit:in-quota`, `rate-limit:exceeded`
   - every event listener receives the request as the only argument
-
-
-### Breaking Change
-- Require Node.js `>= 8.12` due to dependency upgrades
 
 
 ## [2.9.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.8.0...v2.9.0) - 2019-08-13
