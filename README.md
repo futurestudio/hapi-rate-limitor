@@ -95,6 +95,8 @@ Customize the plugin’s default configuration with the following options:
   - enabled or disable the plugin, e.g. when running tests
 - **`skip`**: Function, default: `() => false`
   - an async function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
+- **`getIp`**: Function, default: `undefined`
+  - an async function with the signature `async (request)` to manually determine the requesting IP address. This is helpful if your load balancer provides the client IP address as the last item in the list of forwarded addresses (e.g. Heroku and AWS ELB)
 - **`ipWhitelist`**: Array, default: `[]`
   - a array of whitelisted IPs that won’t be rate-limited and requests from such IPs proceed the request lifecycle. Notice that the related responses won’t contain rate limit headers.
 
@@ -120,6 +122,11 @@ await server.register({
       return request.path.includes('/admin')    // example: disable rate limiting for the admin panel
     },
     ipWhitelist: ['1.1.1.1'],                   // list of IP addresses skipping rate limiting
+    getIp: async (request) => {                 // manually determine the requesting IP address
+      const ips = request.headers['x-forwarded-for'].split(',')
+
+      return ips[ips.length - 1]
+    },
     emitter: yourEventEmitter,                  // your event emitter instance
   }
 })
