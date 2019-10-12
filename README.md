@@ -20,7 +20,7 @@
     <a href="https://travis-ci.org/futurestudio/hapi-rate-limitor"><img src="https://travis-ci.org/futurestudio/hapi-rate-limitor.svg?branch=master" alt="Build Status"></a>
     <a href="https://snyk.io/test/github/futurestudio/hapi-rate-limitor"><img src="https://snyk.io/test/github/futurestudio/hapi-rate-limitor/badge.svg" alt="Known Vulnerabilities"></a>
     <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/v/hapi-rate-limitor.svg" alt="Latest Version"></a>
-      <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/dt/hapi-rate-limitor.svg" alt="Total downloads"></a>
+      <a href="https://www.npmjs.com/package/hapi-rate-limitor"><img src="https://img.shields.io/npm/dm/hapi-rate-limitor.svg" alt="Total downloads"></a>
     <a href="https://greenkeeper.io/" rel="nofollow"><img src="https://badges.greenkeeper.io/futurestudio/hapi-rate-limitor.svg" alt="Greenkeeper badge"></a>
   </p>
   <p>
