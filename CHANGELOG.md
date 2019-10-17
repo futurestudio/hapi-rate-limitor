@@ -1,6 +1,12 @@
 # Changelog
 
 
+## [2.11.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.10.0...v2.11.0) - 2019-10-17
+
+### Added
+- basic TypeScript declarations in `lib/index.d.ts`
+
+
 ## [2.10.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.9.0...v2.10.0) - 2019-10-10
 
 ### Added
