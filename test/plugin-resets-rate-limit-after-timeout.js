@@ -1,8 +1,11 @@
 'use strict'
 
 const Test = require('ava')
-const Hoek = require('@hapi/hoek')
 const Hapi = require('@hapi/hapi')
+
+const timeout = async (ms) => {
+  return new Promise(resolve => setTimeout(ms, resolve))
+}
 
 Test.before(async ({ context }) => {
   const server = new Hapi.Server()
@@ -40,7 +43,7 @@ Test('resets rate limit after window timeout', async (t) => {
   const response2 = await t.context.server.inject(request)
   t.is(response2.statusCode, 429)
 
-  await Hoek.wait(300)
+  await timeout(300)
 
   const response3 = await t.context.server.inject(request)
   t.is(response3.statusCode, 200)

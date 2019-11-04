@@ -22,7 +22,6 @@
   "devDependencies": {
     "@hapi/basic": "~5.1.1",
     "@hapi/hapi": "~18.4.0",
-    "@hapi/hoek": "~8.3.0",
     "@hapi/vision": "~5.5.4",
     "ava": "~2.4.0",
     "eslint": "~6.5.1",
@@ -32,7 +31,7 @@
     "eslint-plugin-promise": "~4.2.1",
     "eslint-plugin-standard": "~4.0.1",
     "handlebars": "~4.4.3",
-    "husky": "~3.0.8",
+    "husky": "~3.0.9",
     "nyc": "~14.1.1",
     "p-event": "~4.1.0"
   },
