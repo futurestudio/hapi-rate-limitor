@@ -1,17 +1,11 @@
 {
   "name": "hapi-rate-limitor",
   "description": "hapi plugin to prevent brute-force attacks",
-  "version": "2.10.0",
-  "author": "Future Studio <info@futurestud.io>",
+  "version": "2.11.0",
+  "author": "Marcus Pöhls <marcus@futurestud.io>",
   "bugs": {
     "url": "https://github.com/futurestudio/hapi-rate-limitor/issues"
   },
-  "contributors": [
-    {
-      "name": "Marcus Poehls",
-      "email": "marcus@futurestud.io"
-    }
-  ],
   "dependencies": {
     "@hapi/boom": "~8.0.1",
     "async-ratelimiter": "~1.2.7",
@@ -24,13 +18,13 @@
     "@hapi/hapi": "~18.4.0",
     "@hapi/vision": "~5.5.4",
     "ava": "~2.4.0",
-    "eslint": "~6.5.1",
+    "eslint": "~6.6.0",
     "eslint-config-standard": "~14.1.0",
     "eslint-plugin-import": "~2.18.2",
     "eslint-plugin-node": "~10.0.0",
     "eslint-plugin-promise": "~4.2.1",
     "eslint-plugin-standard": "~4.0.1",
-    "handlebars": "~4.4.3",
+    "handlebars": "~4.5.1",
     "husky": "~3.0.9",
     "nyc": "~14.1.1",
     "p-event": "~4.1.0"
@@ -61,6 +55,7 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/futurestudio/hapi-rate-limitor.git"

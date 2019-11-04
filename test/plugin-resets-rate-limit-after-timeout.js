@@ -4,7 +4,7 @@ const Test = require('ava')
 const Hapi = require('@hapi/hapi')
 
 const timeout = async (ms) => {
-  return new Promise(resolve => setTimeout(ms, resolve))
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 Test.before(async ({ context }) => {
