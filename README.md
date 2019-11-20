@@ -81,25 +81,31 @@ await server.register({
 ## Plugin Options
 Customize the plugin’s default configuration with the following options:
 
+- **`max`**: Integer, default: `60`
+  - the maximum number of requests allowed in a `duration`
+- **`duration`**: Integer, default: `60000` (1 minute)
+  - the lifetime window keeping records of a request in milliseconds
+- **`namespace`**: String, default: `'hapi-rate-limitor'`
+  - the used prefix to create the rate limit identifier before storing the data
 - **`redis`**: Object, default: `undefined`
-  - use the `redis` configuration to pass through your custom Redis configuration to `ioredis`
+  - this `redis` configuration property will be passed through to `ioredis` creating your custom Redis client
 - **`extensionPoint`**: String, default: `'onPostAuth'`
   - the [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) for rate limiting
 - **`userAttribute`**: String, default: `'id'`
-  - credentials property that identifies a user/request on [dynamic rate limits](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+  - the property name identifying a user (credentials) for [dynamic rate limits](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 - **`userLimitAttribute`**: String, default: `'rateLimit'`
-  - define the property name that identifies the rate limit value on [dynamic rate limit](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
+  - the property name identifying the rate limit value on [dynamic rate limit](https://github.com/futurestudio/hapi-rate-limitor#dynamic-rate-limits). This option is used to access the value from `request.auth.credentials`.
 - **`view`**: String, default: `undefined`
-  - render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
+  - view path to render the view instead of throwing an error (this uses `h.view(yourView, { total, remaining, reset }).code(429)`)
 - **`enabled`**: Boolean, default: `true`
-  - enabled or disable the plugin, e.g. when running tests
+  - a shortcut to enable or disable the plugin, e.g. when running tests
 - **`skip`**: Function, default: `() => false`
-  - an async function to determine whether to skip rate limiting for a given request. The `skip` function accepts the incoming request as the only argument
+  - an async function with the signature `async (request)` to determine whether to skip rate limiting for a given request. The `skip` function retrieves the incoming request as the only argument
 - **`ipWhitelist`**: Array, default: `[]`
-  - a array of whitelisted IPs that won’t be rate-limited and requests from such IPs proceed the request lifecycle. Notice that the related responses won’t contain rate limit headers.
+  - an array of whitelisted IP addresses that won’t be rate-limited. Requests from such IPs proceed the request lifecycle. Notice that the related responses won’t contain rate limit headers.
 - **`getIp`**: Function, default: `undefined`
   - an async function with the signature `async (request)` to manually determine the requesting IP address. This is helpful if your load balancer provides the client IP address as the last item in the list of forwarded addresses (e.g. Heroku and AWS ELB)
-- **`emitter`**: Array, default: `server.events`
+- **`emitter`**: Object, default: `server.events`
   - an event emitter instance used to emit the [rate-limitting events](https://github.com/futurestudio/hapi-rate-limitor#events)
 
 All other options are directly passed through to [async-ratelimiter](https://github.com/microlinkhq/async-ratelimiter#api).
@@ -156,21 +162,6 @@ Please check the [async-ratelimiter API](https://github.com/microlinkhq/async-ra
 
 
 ### Events
-You can pass your own event `emitter` instance as a config property while registering the `hapi-rate-limitor` plugin to your hapi server. By default, `hapi-rate-limitor` uses hapi’s server as an event emitter.
-
-```js
-const EventEmitter = require('events')
-const emitter = new EventEmitter()
-
-await server.register({
-  plugin: require('hapi-rate-limitor'),
-  options: {
-    emitter
-    // … other plugin options
-  }
-})
-```
-
 `hapi-rate-limitor` dispatches the following three events in the rate-limiting lifecycle:
 
 - `rate-limit:attempt`: before rate-limiting the request
@@ -183,6 +174,23 @@ Each event listener receives the related request as the only parameter. Here’s
 
 emitter.on('rate-limit:exceeded', request => {
   // handle rate-limiting exceeded
+})
+```
+
+You can pass your own event `emitter` instance as a config property while registering the `hapi-rate-limitor` plugin to your hapi server. By default, `hapi-rate-limitor` uses hapi’s server as an event emitter.
+
+```js
+const EventEmitter = require('events')
+
+const myEmitter = new EventEmitter()
+
+await server.register({
+  plugin: require('hapi-rate-limitor'),
+  options: {
+    emitter: myEmitter
+
+    // … other plugin options
+  }
 })
 ```
 
