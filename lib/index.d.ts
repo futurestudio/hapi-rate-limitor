@@ -47,15 +47,96 @@ declare namespace HapiRateLimitor {
      */
     interface Options {
         /**
-         * This JWT secret key is used to sign a token for symmetric algorithms.
-         * Symmetric algorithms (HMAC) start with "HS", like "HS256".
-         * Ensure that the JWT secret has at least 32 characters.
-         *
-         * Symmetric algorithms:
-         *   HS256, HS384, HS512
+         * The maximum number of requests allowed in a `duration`.
          *
          */
-        secret?: string;
+        max?: number;
+
+        /**
+         * The lifetime window keeping records of a request in milliseconds.
+         *
+         */
+        duration?: number;
+
+        /**
+         * The used prefix to create the rate limit identifier before storing the data.
+         *
+         */
+        namespace?: string;
+
+        /**
+         * The Redis configuration used to create and connect an ioRedis instance.
+         * The configuration value can be a connection string or an object.
+         * This property is passed through to ioRedis.
+         *
+         */
+        redis?: string | object;
+
+        /**
+         * The [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) used for rate limiting
+         *
+         */
+        extensionPoint?: string;
+
+        /**
+         * the property name identifying a user (credentials) for dynamic rate limits (see Readme).
+         * This option is used to access the value from `request.auth.credentials`.
+         *
+         */
+        userAttribute?: string;
+
+        /**
+         * The property name identifying the rate limit value on dynamic rate limit (see Readme).
+         * This option is used to access the value from `request.auth.credentials`.
+         *
+         */
+        userLimitAttribute?: string;
+
+        /**
+         * The path to a view file which will be rendered instead of throwing an error.
+         * The rate limiter uses `h.view(yourView, { total, remaining, reset }).code(429)`
+         * to render the defined view.
+         *
+         */
+        view?: string;
+
+        /**
+         * A shortcut to enable or disable the plugin, e.g. when running tests.
+         *
+         */
+        enabled?: boolean;
+
+        /**
+         * An async function with the signature `async (request)` to determine whether
+         * to skip rate limiting for a given request. The `skip` function retrieves
+         * the incoming request as the only argument.
+         *
+         */
+        skip?(request: Request): Promise<boolean>;
+
+        /**
+         * An array of whitelisted IP addresses that won’t be rate-limited. Requests from
+         * such IPs proceed the request lifecycle. Notice that the related responses
+         * won’t contain rate limit headers.
+         *
+         */
+        ipWhitelist?: Array<string>;
+
+        /**
+         * An async function with the signature `async (request)` to manually determine
+         * the requesting IP address. This is helpful if your load balancer provides
+         * the client IP address as the last item in the list of forwarded
+         * addresses (e.g. Heroku and AWS ELB).
+         *
+         */
+        getIp?(request: Request): Promise<string>;
+
+        /**
+         * an event emitter instance used to emit the
+         * [rate-limitting events](https://github.com/futurestudio/hapi-rate-limitor#events)
+         *
+         */
+        emitter?: object;
     }
 }
 
