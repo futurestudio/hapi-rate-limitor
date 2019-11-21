@@ -88,7 +88,7 @@ Customize the plugin’s default configuration with the following options:
 - **`namespace`**: String, default: `'hapi-rate-limitor'`
   - the used prefix to create the rate limit identifier before storing the data
 - **`redis`**: Object, default: `undefined`
-  - this `redis` configuration property will be passed through to `ioredis` creating your custom Redis client
+  - the `redis` configuration property will be passed through to `ioredis` creating your custom Redis client
 - **`extensionPoint`**: String, default: `'onPostAuth'`
   - the [request lifecycle extension point](https://futurestud.io/downloads/hapi/request-lifecycle) for rate limiting
 - **`userAttribute`**: String, default: `'id'`
