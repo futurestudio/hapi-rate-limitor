@@ -13,7 +13,8 @@
 - internal refactorings: move rate limit data to a dedicated class
 
 ### Removed
-- lodash as a package dependency
+- `lodash` as a dependency
+- `@hapi/hoek` as a devDependency
 
 
 ## [2.11.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.10.0...v2.11.0) - 2019-10-17
