@@ -1,15 +1,19 @@
 # Changelog
 
 
-## [2.12.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.10.0...v2.11.0) - 2019-11-xx
+## [2.12.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.11.0...v2.12.0) - 2019-11-21
 
 ### Added
+- Travis testing for Node v13
 - TypeScript definitions for the rate limit request decoration and plugin options: this allows autocompletion in your editor (at least in VS Code :))
 
 ### Updated
 - bump dependencies
-- internal refactorings: move rate limit data to a dedicated class
 - internal refactorings: move event emitter to a dedicated class
+- internal refactorings: move rate limit data to a dedicated class
+
+### Removed
+- lodash as a package dependency
 
 
 ## [2.11.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.10.0...v2.11.0) - 2019-10-17
