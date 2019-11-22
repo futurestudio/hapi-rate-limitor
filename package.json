@@ -1,6 +1,6 @@
 {
   "name": "hapi-rate-limitor",
-  "description": "hapi plugin to prevent brute-force attacks",
+  "description": "Rate limiting for hapi/hapi.js to prevent brute-force attacks",
   "version": "2.12.0",
   "author": "Marcus Pöhls <marcus@futurestud.io>",
   "bugs": {
