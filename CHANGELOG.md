@@ -1,6 +1,12 @@
 # Changelog
 
 
+## [2.13.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.12.0...v2.13.0) - 2019-xx-xx
+
+### Updated
+- refined description in `package.json`
+
+
 ## [2.12.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.11.0...v2.12.0) - 2019-11-22
 
 ### Added
