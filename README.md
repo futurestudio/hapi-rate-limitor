@@ -51,9 +51,16 @@ Each package solves its own problem perfectly. `hapi-rate-limitor` composes the 
 
 
 ## Requirements
-> **hapi v17 (or later)** and **Node.js v8 (or newer)**
+> **hapi v19 (or later)** and **Node.js v12 (or newer)**
 
-This plugin requires **hapi v17** (or later) and uses async/await which requires **Node.js v8 or newer**.
+This plugin requires **hapi v19** (or later) and **Node.js v12 or newer**.
+
+
+### Compatibility
+| Major Release | [hapi.js](https://github.com/hapijs/hapi) version | Node.js version |
+| --- | --- | --- |
+| `v3` | `>=19 @hapi/hapi` | `>=12` |
+| `v2` | `>=16 hapi` | `>=8` |
 
 
 ## Installation
@@ -61,6 +68,14 @@ Add `hapi-rate-limitor` as a dependency to your project:
 
 ```bash
 npm i hapi-rate-limitor
+```
+
+
+### Using hapi v18 or lower?
+Use the `2.x` release line:
+
+```bash
+npm i hapi-rate-limitor@3
 ```
 
 
