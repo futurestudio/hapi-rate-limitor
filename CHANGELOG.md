@@ -1,15 +1,15 @@
 # Changelog
 
 
-## [3.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.12.0...v3.0.0) - 2020-xx-xx
+## [3.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.12.0...v3.0.0) - 2020-01-10
 
 ### Updated
 - bump dependencies
 - refined description in `package.json`
 
 ### Breaking Changes
-- require hapi v19
 - require Node.js v12
+  - this change aligns with the hapi ecosystem requiring Node.js v12 with the release of hapi 19
 
 
 ## [2.12.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.11.0...v2.12.0) - 2019-11-22
