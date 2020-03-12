@@ -7,7 +7,7 @@
     "url": "https://github.com/futurestudio/hapi-rate-limitor/issues"
   },
   "dependencies": {
-    "@hapi/boom": "~9.0.0",
+    "@hapi/boom": "~9.1.0",
     "async-ratelimiter": "~1.2.7",
     "ioredis": "~4.16.0",
     "request-ip": "~2.1.3"
