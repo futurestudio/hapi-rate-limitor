@@ -25,7 +25,7 @@
     "eslint-plugin-standard": "~4.0.1",
     "handlebars": "~4.7.6",
     "husky": "~4.2.5",
-    "nyc": "~15.0.1",
+    "nyc": "~15.1.0",
     "p-event": "~4.1.0"
   },
   "engines": {
@@ -54,7 +54,7 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "typings",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/futurestudio/hapi-rate-limitor.git"
