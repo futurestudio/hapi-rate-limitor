@@ -1,6 +1,23 @@
 # Changelog
 
 
+## [2.13.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.12.0...v2.13.0) - 2020-06-01
+
+### Updated
+- refined route-specific rate limit handling
+
+
+### Possible Breaking Changes
+This release introduces an updated handling route-level max attempts.
+
+**Previously**, the default (server-wide) rate limit affected route-level rate limits.
+**Now**, the route-level rate limits are independend and not affected by the default rate limit.
+
+Example: you have a `/login` route with `{ max: 10 }` configuration and your default configuration is `{ max: 60 }`. In the previous version, any request to other pages than `/login` would affect the max limit of 10 requests for the `/login` route. This behavior may have eaten all 10 requests already before even visiting the `/login` route. This new version handles the `/login` route independently from other pages because it has its own `max` configuration.
+
+This changed handling may introduce a breaking change for your app if you previously worked around that issue. Sorry, if I’m causing you trouble. I’m releasing this version as a minor release in the `2.x` and `3.x` release lines. In case you’re using tilde (`~`) in your `package.json` file, you’re not directly updated to this version when running `npm install`.
+
+
 ## [2.12.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v2.11.0...v2.12.0) - 2019-11-22
 
 ### Added
