@@ -54,7 +54,7 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "typings",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/futurestudio/hapi-rate-limitor.git"
