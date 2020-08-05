@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [3.1.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.0...v3.1.1) - 2020-08-05
+
+### Updated
+- bump dependencies
+- minor code refinements
+- replaced `request-ip` dependency with `@supercharge/request-ip` providing improved request IP detection
+
+
 ## [3.1.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.0.0...v3.1.0) - 2020-06-01
 
 ### Updated
