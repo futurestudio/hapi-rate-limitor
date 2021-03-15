@@ -10,7 +10,7 @@
     "@hapi/boom": "~9.1.0",
     "@supercharge/request-ip": "~1.1.1",
     "async-ratelimiter": "~1.2.8",
-    "ioredis": "~4.23.0"
+    "ioredis": "~4.24.2"
   },
   "devDependencies": {
     "@hapi/basic": "~6.0.0",
