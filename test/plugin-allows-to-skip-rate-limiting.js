@@ -9,7 +9,7 @@ async function initializeServer () {
   await server.register({
     plugin: require('../lib/index'),
     options: {
-      skip: request => {
+      skip (request) {
         return request.path.includes('/admin')
       },
       max: 100,
@@ -27,12 +27,12 @@ Test('Skips rate limiting when skip() returns true', async (t) => {
 
   server.route({
     method: 'GET',
-    path: '/admin/test',
+    path: '/admin',
     handler: () => 'success'
   })
 
   const request = {
-    url: '/admin/test',
+    url: '/admin',
     method: 'GET'
   }
 
