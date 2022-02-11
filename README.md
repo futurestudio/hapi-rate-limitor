@@ -74,7 +74,7 @@ npm i hapi-rate-limitor
 Use the `2.x` release line:
 
 ```bash
-npm i hapi-rate-limitor@3
+npm i hapi-rate-limitor@2
 ```
 
 
