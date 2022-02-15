@@ -1,6 +1,14 @@
 # Changelog
 
 
+## [3.1.2](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.1...v3.1.2) - 2022-02-15
+
+### Updated
+- bump dependencies
+- minor code refinements
+- great to see a release after 1.5 years of silence 🥳
+
+
 ## [3.1.1](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.0...v3.1.1) - 2020-08-05
 
 ### Updated
