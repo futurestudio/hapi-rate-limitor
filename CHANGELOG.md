@@ -1,6 +1,15 @@
 # Changelog
 
 
+## [4.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.2...v4.0.0) - 2022-05-xx
+
+### Updated
+- bump dependencies
+
+### Breaking Changes
+This release drops support for Node.js v12. Please use Node.js v14 and later.
+
+
 ## [3.1.2](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.1...v3.1.2) - 2022-02-15
 
 ### Updated
