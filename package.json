@@ -13,7 +13,7 @@
     "ioredis": "~5.2.0"
   },
   "devDependencies": {
-    "@hapi/basic": "~6.0.0",
+    "@hapi/basic": "~7.0.0",
     "@hapi/hapi": "~20.2.2",
     "@hapi/vision": "~7.0.0",
     "ava": "~4.3.0",
