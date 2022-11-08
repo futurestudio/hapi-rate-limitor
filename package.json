@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@hapi/basic": "~7.0.0",
-    "@hapi/hapi": "~20.2.2",
+    "@hapi/hapi": "~21.0.0",
     "@hapi/vision": "~7.0.0",
     "ava": "~5.0.1",
     "eslint": "~7.32.0",
