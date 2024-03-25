@@ -1,7 +1,10 @@
 # Changelog
 
 
-## [4.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.2...v4.0.0) - 2022-05-xx
+## [4.0.0](https://github.com/futurestudio/hapi-rate-limitor/compare/v3.1.2...v4.0.0) - 2024-03-25
+
+### Added
+- call `h.continue` after adding the rate-limit related response headers: this proceeds the plugin chain and plugins registered after hapi-rate-limitor can do their handling as well
 
 ### Updated
 - bump dependencies
