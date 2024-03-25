@@ -1,7 +1,7 @@
 {
   "name": "hapi-rate-limitor",
   "description": "Rate limiting for hapi/hapi.js to prevent brute-force attacks",
-  "version": "3.1.2",
+  "version": "4.0.0",
   "author": "Marcus Pöhls <marcus@futurestud.io>",
   "bugs": {
     "url": "https://github.com/futurestudio/hapi-rate-limitor/issues"
