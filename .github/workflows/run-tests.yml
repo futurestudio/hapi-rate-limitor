@@ -1,6 +1,16 @@
 name: Run tests
 
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+
+concurrency:
+  # the group name is composed of two elements:
+  #   1. this workflow name "run-tests"
+  #   2. the branch name retrieved via the "github.ref" variable
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -8,16 +18,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-        redis-version: [4, 5, 6, 7]
+        node-version: [18.x, 20.x]
+        redis-version: [6, 7]
 
     name: Node ${{ matrix.node-version }} - Redis ${{ matrix.redis-version }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
 
