@@ -135,11 +135,11 @@ await server.register({
     extensionPoint: 'onPreAuth',
     namespace: 'hapi-rate-limitor',
     max: 2,                                     // a maximum of 2 requests
-    duration: 1000                              // per second (the value is in milliseconds),
+    duration: 1000,                              // per second (the value is in milliseconds),
     userAttribute: 'id',
     userLimitAttribute: 'rateLimit',
     view: 'rate-limit-exceeded',                // render this view when the rate limit exceeded
-    enabled: true
+    enabled: true,
     skip: async (request) => {
       return request.path.includes('/admin')    // example: disable rate limiting for the admin panel
     },
