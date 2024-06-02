@@ -139,7 +139,7 @@ await server.register({
     userAttribute: 'id',
     userLimitAttribute: 'rateLimit',
     view: 'rate-limit-exceeded',                // render this view when the rate limit exceeded
-    enabled: true
+    enabled: true,
     skip: async (request) => {
       return request.path.includes('/admin')    // example: disable rate limiting for the admin panel
     },
@@ -149,7 +149,7 @@ await server.register({
 
       return ips[ips.length - 1]
     },
-    emitter: yourEventEmitter,                  // your event emitter instance
+    emitter: yourEventEmitter                  // your event emitter instance
   }
 })
 
