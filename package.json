@@ -17,7 +17,7 @@
     "@hapi/hapi": "~21.3.7",
     "@hapi/vision": "~7.0.3",
     "ava": "~5.3.0",
-    "eslint": "~8.57.0",
+    "eslint": "~9.19.0",
     "eslint-config-standard": "~17.1.0",
     "eslint-plugin-import": "~2.31.0",
     "eslint-plugin-node": "~11.1.0",
